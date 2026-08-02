@@ -1,0 +1,30 @@
+[14:05:59.618] [INFO] storybook v10.5.5
+[14:06:00.207] [DEBUG] Command "yarn.cmd" not found, trying next variation...
+[14:06:00.231] [DEBUG] Command "yarn.exe" not found, trying next variation...
+[14:06:00.254] [DEBUG] Command "yarn.ps1" not found, trying next variation...
+[14:06:00.299] [DEBUG] Command "pnpm.cmd" not found, trying next variation...
+[14:06:00.321] [DEBUG] Command "pnpm.exe" not found, trying next variation...
+[14:06:00.345] [DEBUG] Command "pnpm.ps1" not found, trying next variation...
+[14:06:00.546] [DEBUG] Getting package.json info for C:/dev/react-nx-demo/package.json...
+[14:06:00.869] [INFO] Storybook collects completely anonymous usage telemetry. We use it to shape Storybook's roadmap and prioritize features. You can learn more, including how to opt out, at https://storybook.js.org/telemetry
+[14:06:01.212] [DEBUG] Serving static files from [36mnode_modules/@chromatic-com/storybook/assets[39m at [36m/addon-visual-tests-assets[39m
+[14:06:01.212] [INFO] Starting...
+[14:06:01.325] [DEBUG] Starting preview..
+[14:06:01.337] [ERROR] Failed to build the preview
+[14:06:01.339] [ERROR] [38;2;241;97;97mError: Build failed with 1 error:
+
+[31m[UNRESOLVED_ENTRY] [0mCannot resolve entry module vite.config.mts.
+[39m
+    at aggregateBindingErrorsIntoJsError (file:///C:/dev/react-nx-demo/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:48:18)
+    at unwrapBindingResult (file:///C:/dev/react-nx-demo/node_modules/rolldown/dist/shared/error-BgfXq0Tb.mjs:18:128)
+    at #build (file:///C:/dev/react-nx-demo/node_modules/rolldown/dist/shared/rolldown-DP_p9pd3.mjs:132:34)
+    at async bundleConfigFile (file:///C:/dev/react-nx-demo/node_modules/vite/dist/node/chunks/node.js:36962:17)
+    at async bundleAndLoadConfigFile (file:///C:/dev/react-nx-demo/node_modules/vite/dist/node/chunks/node.js:36863:18)
+    at async loadConfigFromFile (file:///C:/dev/react-nx-demo/node_modules/vite/dist/node/chunks/node.js:36824:42)
+    at async commonConfig (file:///C:/dev/react-nx-demo/node_modules/@storybook/builder-vite/dist/index.js:1445:324)
+    at async createViteServer (file:///C:/dev/react-nx-demo/node_modules/@storybook/builder-vite/dist/index.js:1574:42)
+    at async Module.start (file:///C:/dev/react-nx-demo/node_modules/@storybook/builder-vite/dist/index.js:1621:17)
+    at async storybookDevServer (file:///C:/dev/react-nx-demo/node_modules/storybook/dist/core-server/index.js:11225:59)
+[14:06:01.340] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
+[14:06:10.991] [PROMPT] Would you like to send anonymous crash reports to improve Storybook and fix bugs faster? {"choice":true}
