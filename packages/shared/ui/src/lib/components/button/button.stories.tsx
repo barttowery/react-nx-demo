@@ -28,7 +28,7 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-// Base primary story (uses default variant)
+/** Base primary story (uses default variant) */
 export const Primary = {
   tags: ['!test'],
   args: {
@@ -36,7 +36,7 @@ export const Primary = {
   },
 } satisfies Story;
 
-// Default story explicitly sets variant to 'default' - Used for normal primary actions such as a save or OK
+/** Default story explicitly sets variant to 'default' - Used for normal primary actions such as a save or OK */
 export const Default = {
   tags: ['!test'],
   args: {
@@ -45,7 +45,7 @@ export const Default = {
   },
 } satisfies Story;
 
-// Outline button - Used for secondary actions, such as a cancel
+/** Outline button - Used for secondary actions, such as a cancel */
 export const Outline = {
   tags: ['!test'],
   args: {
@@ -54,7 +54,7 @@ export const Outline = {
   },
 } satisfies Story;
 
-// Ghost button
+/** Ghost button - Used for subtle actions, such as a link */
 export const Ghost = {
   tags: ['!test'],
   args: {
@@ -63,7 +63,7 @@ export const Ghost = {
   },
 } satisfies Story;
 
-// Secondary button - Used for a secondary button that isn't the normal function
+/** Secondary button - Used for a secondary button that isn't the default function */
 export const Secondary = {
   tags: ['!test'],
   args: {
@@ -72,7 +72,7 @@ export const Secondary = {
   },
 } satisfies Story;
 
-// Destructive button - Used when action will cause data distruction (delete) or needs a warning
+/** Destructive button - Used when action will cause data distruction (delete) or needs a warning */
 export const Destructive = {
   tags: ['!test'],
   args: {
@@ -81,7 +81,7 @@ export const Destructive = {
   },
 } satisfies Story;
 
-// Button in disabled mode
+/** Disabled button - Used when the button is disabled */
 export const Disabled = {
   tags: ['!test'],
   args: {
@@ -90,7 +90,7 @@ export const Disabled = {
   },
 } satisfies Story;
 
-// Small size button - used if space is at a premium
+/** Small size button - used if space is at a premium */
 export const SmallSize = {
   tags: ['!test'],
   args: {
@@ -99,7 +99,7 @@ export const SmallSize = {
   },
 } satisfies Story;
 
-// Large size button - used if the button needs extra emphasis
+/** Large size button - used if the button needs extra emphasis */
 export const LargeSize = {
   tags: ['!test'],
   args: {
@@ -108,7 +108,7 @@ export const LargeSize = {
   },
 } satisfies Story;
 
-// With an Icon - if an icon helps with the meaning of the button
+/** With an Icon - if an icon helps with the meaning of the button */
 export const WithIcon = {
   tags: ['!test'],
   args: {
@@ -132,7 +132,7 @@ export const WithIcon = {
   },
 } satisfies Story;
 
-// Icon button with no text
+/** Icon button with no text */
 export const IconButton = {
   tags: ['!test'],
   args: {
@@ -155,6 +155,30 @@ export const IconButton = {
   },
 } satisfies Story;
 
+
+/** Ghost Icon button with no text and no borders */
+export const GhostIcon = {
+  tags: ['!test'],
+  args: {
+    size: 'icon',
+    variant: 'ghost',
+    'aria-label': 'Ghost Icon Button',
+    children: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M5 12h14" />
+        <path d="M12 5v14" />
+      </svg>
+    ),
+  },
+} satisfies Story;
 
 export const DefaultVisual: Story = {
   tags: ['!dev', '!autodocs'],

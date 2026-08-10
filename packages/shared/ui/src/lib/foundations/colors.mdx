@@ -1,0 +1,110 @@
+import {
+  Meta,
+  ColorPalette,
+  ColorItem,
+  Unstyled,
+} from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+The following colors are used in the frontend code. The Tailwind color token is included with the hex color.
+
+<ColorPalette>
+  <ColorItem
+    title="Basic Colors"
+    subtitle="The default app background and text color."
+    colors={{
+      'background': '#FFFFFF',
+      'foreground': '#0A0A0A',
+    }}
+  />
+  <ColorItem
+    title="Card Colors"
+    subtitle="Elevated surfaces and the content inside them. `Card`, dashboard panels, settings panels."
+    colors={{
+      'card': '#FFFFFF',
+      'card-foreground': '#0A0A0A',
+    }}
+  />
+  <ColorItem
+    title="Popover Colors"
+    subtitle="Floating surfaces and the content inside them. `Popover`, `DropdownMenu`, `ContextMenu`, and other overlays."
+    colors={{
+      'popover': '#FFFFFF',
+      'popover-foreground': '#0A0A0A',
+    }}
+  />
+  <ColorItem
+    title="Primary Colors"
+    subtitle="High-emphasis actions and brand surfaces. Default `Button`, selected states, badges, and active accents."
+    colors={{
+      'primary': '#007A55',
+      'primary-foreground': '#ECFDF5',
+    }}
+  />
+  <ColorItem
+    title="Secondary Colors"
+    subtitle="Lower-emphasis filled actions and supporting surfaces. Secondary buttons, secondary badges, and supporting UI."
+    colors={{
+      'primary': '#F4F4F5',
+      'primary-foreground': '#18181B',
+    }}
+  />
+  <ColorItem
+    title="Muted Colors"
+    subtitle="Subtle surfaces and lower-emphasis content. Descriptions, placeholders, empty states, helper text, and subdued surfaces."
+    colors={{
+      'primary': '#F5F5F5',
+      'primary-foreground': '#737373',
+    }}
+  />
+  <ColorItem
+    title="Accent Colors"
+    subtitle="Interactive hover, focus, and active surfaces. Ghost buttons, menu highlight states, hovered rows, and selected items."
+    colors={{
+      'primary': '#F5F5F5',
+      'primary-foreground': '#171717',
+    }}
+  />
+  <ColorItem
+    title="Destructive"
+    subtitle="Destructive actions and error emphasis. Destructive buttons, invalid states, and destructive menu items."
+    colors={{
+      'destructive': '#E7000B',
+    }}
+  />
+  <ColorItem
+    title="Border"
+    subtitle="Default borders and separators. Destructive buttons, invalid states, and destructive menu items."
+    colors={{
+      'border': '#E5E5E5',
+    }}
+  />
+  <ColorItem
+    title="Input"
+    subtitle="Form control borders and input surface treatment. `Input`, `Textarea`, `Select`, and outline-style controls."
+    colors={{
+      'input': '#E5E5E5',
+    }}
+  />
+  <ColorItem
+    title="Ring"
+    subtitle="Focus rings and outlines. Buttons, inputs, checkboxes, menus, and other focusable controls."
+    colors={{
+      'ring': '#A1A1A1',
+    }}
+  />
+  <ColorItem
+    title="Chart Colors"
+    subtitle="The default chart palette. Charts and chart-driven dashboard blocks."
+    colors={{
+      'chart-1': '#5EE9B5',
+      'chart-2': '#00BC7D',
+      'chart-3': '#009966',
+      'chart-4': '#007A55',
+      'chart-5': '#006045',
+    }}
+  />
+</ColorPalette>

@@ -5,9 +5,15 @@ import type { Preview } from '@storybook/react';
 export const tags = ['autodocs'];
 
 export const parameters = {
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
   options: {
     storySort: {
-      order: ['Introduction', 'Components'],
+      order: ['Introduction', 'Foundations', 'Components'],
     },
   },
 };

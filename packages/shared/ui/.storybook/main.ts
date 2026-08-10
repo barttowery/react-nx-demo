@@ -1,5 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
+import tailwindcss from '@tailwindcss/vite';
+import { mergeConfig } from 'vite';
 
 import type { StorybookConfig } from '@storybook/react-vite';
 
@@ -27,6 +29,11 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: 'react-docgen-typescript',
   },
+  async viteFinal(config) {
+    return mergeConfig(config, {
+      plugins: [tailwindcss()],
+    });
+  }
 };
 
 export default config;

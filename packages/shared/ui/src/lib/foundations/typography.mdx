@@ -1,0 +1,149 @@
+import {
+  Meta,
+  Controls,
+  Typeset,
+  Unstyled,
+} from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+<strong>Geist</strong> is the default font for the web application. The base font size is 16px;
+
+## Header Styles
+
+The header style for a page uses Geist and the text-2xl size (24px). The full list of styles are:
+`text-2xl py-3 px-6 font-medium bg-color-card text-color-primary-text`
+
+<Unstyled>
+  <div className="font-geist text-2xl py-3 px-6 font-medium bg-color-card text-color-primary-text">
+    Web Application
+  </div>
+</Unstyled>
+
+## Available Font Sizes and Weights with Tailwind Styles
+
+**Font Sizes**
+
+<Unstyled>
+  <div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '100px', fontSize: '12px' }} className="font-light text-xs">
+        text-xs
+      </div>
+      <div style={{ width: '80px', fontSize: '12px' }} className="font-light text-xs">
+        12px
+      </div>
+      <div style={{ fontSize: '12px' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '100px', fontSize: '14px' }} className="font-light text-xs">
+        text-sm
+      </div>
+      <div style={{ width: '80px', fontSize: '14px' }} className="font-light text-xs">
+        14px
+      </div>
+      <div style={{ fontSize: '14px' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '100px', fontSize: '16px' }} className="font-light text-xs">
+        text-base
+      </div>
+      <div style={{ width: '80px', fontSize: '16px' }} className="font-light text-xs">
+        16px
+      </div>
+      <div style={{ fontSize: '16px' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '100px', fontSize: '18px' }} className="font-light text-xs">
+        text-lg
+      </div>
+      <div style={{ width: '80px', fontSize: '18px' }} className="font-light text-xs">
+        18px
+      </div>
+      <div style={{ fontSize: '18px' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '100px', fontSize: '20px' }} className="font-light text-xs">
+        text-xl
+      </div>
+      <div style={{ width: '80px', fontSize: '20px' }} className="font-light text-xs">
+        20px
+      </div>
+      <div style={{ fontSize: '20px' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '100px', fontSize: '24px' }} className="font-light text-xs">
+        text-2xl
+      </div>
+      <div style={{ width: '80px', fontSize: '24px' }} className="font-light text-xs">
+        24px
+      </div>
+      <div style={{ fontSize: '24px' }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+  </div>
+</Unstyled>
+
+**Font Weights:**
+
+<Unstyled>
+  <div className="drop-shadow-mdshadow-md">
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '120px', fontSize: '16px' }} className="font-light text-xs">
+        font-light
+      </div>
+      <div style={{ width: '80px', fontSize: '16px' }} className="font-light text-xs">
+        300
+      </div>
+      <div style={{ fontSize: '16px', fontWeight: 300 }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '120px', fontSize: '16px' }} className="font-light text-xs">
+        font-normal
+      </div>
+      <div style={{ width: '80px', fontSize: '16px' }} className="font-light text-xs">
+        400
+      </div>
+      <div style={{ fontSize: '16px', fontWeight: 400 }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '120px', fontSize: '16px' }} className="font-light text-xs">
+        font-medium
+      </div>
+      <div style={{ width: '80px', fontSize: '16px' }} className="font-light text-xs">
+        500
+      </div>
+      <div style={{ fontSize: '16px', fontWeight: 500 }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div style={{ width: '120px', fontSize: '16px' }} className="font-light text-xs">
+        font-semibold
+      </div>
+      <div style={{ width: '80px', fontSize: '16px' }} className="font-light text-xs">
+        600
+      </div>
+      <div style={{ fontSize: '16px', fontWeight: 600 }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </div>
+    </div>
+  </div>
+</Unstyled>

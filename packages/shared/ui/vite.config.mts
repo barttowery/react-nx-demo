@@ -1,6 +1,5 @@
 /// <reference types='vitest' />
 import * as path from 'path';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
 import react from '@vitejs/plugin-react';
@@ -13,6 +12,9 @@ const workspaceRoot = path.join(import.meta.dirname, '../../..');
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
+  resolve: {
+    tsconfigPaths: true,
+  },
   cacheDir: '../../../node_modules/.vite/packages/shared/ui',
   server: {
     fs: {
@@ -22,7 +24,6 @@ export default defineConfig(() => ({
   plugins: [
     react(),
     tailwindcss(),
-    tsconfigPaths({ root: '../../..', projects: ['tsconfig.base.json'] }),
     Unfonts({
       google: {
         families: ['Geist', 'Inter'],
@@ -76,7 +77,7 @@ export default defineConfig(() => ({
         extends: true as const,
         plugins: [
             storybookTest({
-              configDir: path.resolve(__dirname, '.storybook'),
+              configDir: path.join(import.meta.dirname, '.storybook'),
           }),
         ],
         test: {

@@ -1,0 +1,106 @@
+import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Round Corners" />
+
+<style>
+  {`
+    .text-cell {
+      width: 80px;
+      padding-top: 10px;
+    }
+  `}
+</style>
+
+# Round Corners
+
+The base `--radius` value is used to compute all values. The following round corners (or border radius) are available. This can be added to an object by using `rounded-` before the token. As an example, using `rounded-md` would set the border-radius to 8px.
+
+<Unstyled>
+  <div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div className="font-semibold text-cell">Token</div>
+      <div className="font-semibold text-cell">Pixels</div>
+      <div className="font-semibold text-cell p-1">Example</div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div className="font-light text-xs text-cell">none</div>
+      <div className="font-light text-xs text-cell">0px</div>
+      <div className="p-1">
+        <div
+          style={{ borderRadius: '0px', height: '40px', width: '40px', backgroundColor: '#0A0A0A' }}
+          className="rounded-none h-10 w-10 bg-color-primary-text"
+        ></div>
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div className="font-light text-xs text-cell">sm</div>
+      <div className="font-light text-xs text-cell">6px</div>
+      <div className="p-1">
+        <div
+          style={{ borderRadius: '6px', height: '40px', width: '40px', backgroundColor: '#0A0A0A' }}
+          className="rounded-sm h-10 w-10 bg-color-primary-text"
+        ></div>
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div className="font-light text-xs text-cell">md</div>
+      <div className="font-light text-xs text-cell">8px</div>
+      <div className="p-1">
+        <div
+          style={{ borderRadius: '8px', height: '40px', width: '40px', backgroundColor: '#0A0A0A' }}
+          className="rounded-md h-10 w-10 bg-color-primary-text"
+        ></div>
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div className="font-light text-xs text-cell">lg</div>
+      <div className="font-light text-xs text-cell">10px</div>
+      <div className="p-1">
+        <div
+          style={{ borderRadius: '10px', height: '40px', width: '40px', backgroundColor: '#0A0A0A' }}
+          className="rounded-lg h-10 w-10 bg-color-primary-text"
+        ></div>
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div className="font-light text-xs text-cell">xl</div>
+      <div className="font-light text-xs text-cell">14px</div>
+      <div className="p-1">
+        <div
+          style={{ borderRadius: '14px', height: '40px', width: '40px', backgroundColor: '#0A0A0A' }}
+          className="rounded-xl h-10 w-10 bg-color-primary-text"
+        ></div>
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div className="font-light text-xs text-cell">2xl</div>
+      <div className="font-light text-xs text-cell">18px</div>
+      <div className="p-1">
+        <div
+          style={{ borderRadius: '18px', height: '40px', width: '40px', backgroundColor: '#0A0A0A' }}
+          className="rounded-2xl h-10 w-10 bg-color-primary-text"
+        ></div>
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div className="font-light text-xs text-cell">3xl</div>
+      <div className="font-light text-xs text-cell">22px</div>
+      <div className="p-1">
+        <div
+          style={{ borderRadius: '22px', height: '60px', width: '60px', backgroundColor: '#0A0A0A' }}
+          className="rounded-3xl h-15 w-15 bg-color-primary-text"
+        ></div>
+      </div>
+    </div>
+    <div className="flex flex-row align-baseline mb-2">
+      <div className="font-light text-xs text-cell">full</div>
+      <div className="font-light text-xs text-cell">9999px</div>
+      <div className="p-1">
+        <div
+          style={{ borderRadius: '9999px', height: '60px', width: '60px', backgroundColor: '#0A0A0A' }}
+          className="rounded-full h-15 w-15 bg-color-primary-text"
+        ></div>
+      </div>
+    </div>
+  </div>
+</Unstyled>
