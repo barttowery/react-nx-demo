@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Calendar } from './calendar';
+import { expect, screen, within } from 'storybook/test';
 
 /** Calendar - A calendar component that allows users to select a date or a range of dates. */
 const meta = {
@@ -36,5 +37,38 @@ export const MonthYearSelector = {
     mode: 'single',
     captionLayout: 'dropdown',
     className: "rounded-lg border border-border",
+  },
+} satisfies Story;
+
+/** Calendar Primary Visual - Verifies the calendar component renders correctly with single date selection */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    mode: 'single',
+    className: "rounded-lg border border-border",
+    role: 'grid' as any,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const calendar = await canvas.findAllByRole('grid');
+    await expect(calendar[0]).toBeInTheDocument();
+    await expect(calendar[0]).toHaveClass('rounded-lg');
+  },
+} satisfies Story;
+
+/** Calendar Date Range Visual - Verifies the calendar component renders correctly for date range selection */
+export const DateRangeVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    mode: 'range',
+    numberOfMonths: 2,
+    className: "rounded-lg border border-border",
+    role: 'grid' as any,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const calendar = await canvas.findAllByRole('grid');
+    await expect(calendar[0]).toBeInTheDocument();
+    await expect(canvas.getAllByRole('button').length).toBeGreaterThan(0);
   },
 } satisfies Story;

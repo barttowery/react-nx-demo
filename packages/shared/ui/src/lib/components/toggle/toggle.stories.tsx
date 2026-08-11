@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { Toggle } from './toggle';
 import { BookmarkIcon } from 'lucide-react';
 
@@ -61,4 +62,24 @@ export const Disabled = {
       </div>
     );
   }
+} satisfies Story;
+
+/** Toggle Primary Visual - Verifies the toggle component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    size: 'sm',
+    variant: 'outline',
+    children: (
+      <>
+        <BookmarkIcon className="group-data-[state=on]/toggle:fill-foreground" />
+        Bookmark
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('button')).toBeInTheDocument();
+    await expect(canvas.getByText(/bookmark/i)).toBeInTheDocument();
+  },
 } satisfies Story;

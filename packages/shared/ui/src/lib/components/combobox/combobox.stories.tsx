@@ -22,6 +22,7 @@ import { Item, ItemContent, ItemDescription, ItemTitle } from '../item/item';
 import { Button } from '../button/button';
 import { InputGroupAddon } from '../input-group/input-group';
 import { GlobeIcon } from 'lucide-react';
+import { expect, within } from 'storybook/test';
 
 const frameworks = [
   "Next.js",
@@ -385,5 +386,103 @@ export const InputGroup = {
         </ComboboxContent>
       </>
     ),
+  },
+} satisfies Story;
+
+/** Combobox Default Visual - Verifies the combobox renders correctly with default styling */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    items: frameworks,
+    children: (
+      <>
+        <ComboboxInput placeholder="Select a framework" />
+        <ComboboxContent>
+          <ComboboxEmpty>No items found.</ComboboxEmpty>
+          <ComboboxList>
+            {(item) => (
+              <ComboboxItem key={item} value={item}>
+                {item}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByPlaceholderText(/Select a framework/i);
+    await expect(input).toBeInTheDocument();
+    await expect(input).toHaveAttribute('placeholder', 'Select a framework');
+  },
+} satisfies Story;
+
+/** Combobox Disabled Visual - Verifies disabled combobox renders correctly */
+export const DisabledVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    items: frameworks,
+    disabled: true,
+    children: (
+      <>
+        <ComboboxInput placeholder="Select a framework" disabled />
+        <ComboboxContent>
+          <ComboboxEmpty>No items found.</ComboboxEmpty>
+          <ComboboxList>
+            {(item) => (
+              <ComboboxItem key={item} value={item}>
+                {item}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByPlaceholderText(/Select a framework/i);
+    await expect(input).toBeInTheDocument();
+    await expect(input).toBeDisabled();
+  },
+} satisfies Story;
+
+/** Combobox With Group Visual - Verifies combobox with grouped items renders correctly */
+export const GroupedVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    items: timezones,
+    children: (
+      <>
+        <ComboboxInput placeholder="Select a timezone">
+          <InputGroupAddon>
+            <GlobeIcon />
+          </InputGroupAddon>
+        </ComboboxInput>
+        <ComboboxContent alignOffset={-28} className="w-60">
+          <ComboboxEmpty>No timezones found.</ComboboxEmpty>
+          <ComboboxList>
+            {(group) => (
+              <ComboboxGroup key={group.value} items={group.items}>
+                <ComboboxLabel>{group.value}</ComboboxLabel>
+                <ComboboxCollection>
+                  {(item) => (
+                    <ComboboxItem key={item} value={item}>
+                      {item}
+                    </ComboboxItem>
+                  )}
+                </ComboboxCollection>
+              </ComboboxGroup>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByPlaceholderText(/Select a timezone/i);
+    await expect(input).toBeInTheDocument();
   },
 } satisfies Story;

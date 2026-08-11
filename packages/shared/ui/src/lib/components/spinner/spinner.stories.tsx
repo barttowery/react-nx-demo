@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { Spinner } from './spinner';
 
 /** Spinner - An indicator that can be used to show a loading state */
@@ -15,5 +16,17 @@ export const Primary = {
   tags: ['!test'],
   args: {
     className: 'size-4',
+  },
+} satisfies Story;
+
+/** Spinner Primary Visual - Verifies the spinner component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    className: 'size-4',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('status')).toBeInTheDocument();
   },
 } satisfies Story;

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Checkbox } from './checkbox';
 import { Label } from '../label/label';
+import { expect, within } from 'storybook/test';
 
 /** Checkbox - A control that allows the user to toggle between checked and not checked. */
 const meta = {
@@ -99,3 +100,49 @@ export const GroupOfCheckboxes: Story = {
     );
   },
 };
+
+/** Checkbox Primary Visual - Verifies the checkbox component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    'aria-label': 'checkbox',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('checkbox')).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Checkbox With Label Visual - Verifies the checkbox with label renders correctly */
+export const WithLabelVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    'aria-label': 'checkbox',
+  },
+  render: (args) => {
+    return (
+      <div className="flex items-center space-x-2">
+        <Checkbox {...args} />
+        <Label htmlFor="checkbox">Label for Checkbox</Label>
+      </div>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('checkbox')).toBeInTheDocument();
+    await expect(canvas.getByText(/Label for Checkbox/i)).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Checkbox Indeterminate Visual - Verifies the checkbox in indeterminate state renders correctly */
+export const IndeterminateVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    checked: 'indeterminate',
+    'aria-label': 'checkbox',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('checkbox')).toHaveAttribute('data-state', 'indeterminate');
+  },
+} satisfies Story;

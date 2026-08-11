@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../card/card';
+import { expect, userEvent, within } from 'storybook/test';
 
 /** Tabs - Displays a tab component with multiple tabs and content. */
 const meta = {
@@ -190,5 +191,115 @@ export const Disabled = {
         </TabsTrigger>
       </TabsList>
     ),
+  },
+} satisfies Story;
+
+/** Tabs Default Visual - Verifies the default tabs render correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    defaultValue: "overview",
+    className: "w-100",
+    children: (
+      <>
+        <TabsList>
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+          <TabsTrigger value="reports">Reports</TabsTrigger>
+          <TabsTrigger value="settings">Settings</TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview">
+          <Card>
+            <CardHeader>
+              <CardTitle>Overview</CardTitle>
+              <CardDescription>
+                View your key metrics and recent project activity.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">
+              You have 12 active projects.
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const overviewTrigger = canvas.getByRole('tab', { name: /Overview/i });
+    await expect(overviewTrigger).toBeInTheDocument();
+    await expect(overviewTrigger).toHaveAttribute('data-state', 'active');
+    await expect(canvas.queryByText(/You have 12 active projects/i)).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Tabs Line Visual - Verifies line variant tabs render correctly */
+export const LineVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    defaultValue: "overview",
+    className: "w-100",
+    children: (
+      <>
+        <TabsList variant="line">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="analytics">Analytics</TabsTrigger>
+        </TabsList>
+        <TabsContent value="overview">
+          <Card>
+            <CardHeader>
+              <CardTitle>Overview</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">
+              You have 12 active projects.
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const overviewTrigger = canvas.getByRole('tab', { name: /Overview/i });
+    await expect(overviewTrigger).toBeInTheDocument();
+    await expect(overviewTrigger).toHaveAttribute('data-state', 'active');
+  },
+} satisfies Story;
+
+/** Tabs Vertical Visual - Verifies vertical tabs render correctly */
+export const VerticalVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    defaultValue: "account",
+    orientation: "vertical",
+    children: (
+      <>
+        <TabsList>
+          <TabsTrigger value="account">Account</TabsTrigger>
+          <TabsTrigger value="password">Password</TabsTrigger>
+        </TabsList>
+        <TabsContent value="account">
+          <Card>
+            <CardHeader>
+              <CardTitle>Account</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground">
+              Manage your account settings.
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="password">Password content panel</TabsContent>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    // Find and click the password tab trigger
+    const passwordTab = canvas.getByRole('tab', { name: /password/i });
+    await userEvent.click(passwordTab);
+
+    // Assert that the password content is visible
+    await expect(canvas.getByText('Password content panel')).toBeVisible();
+
   },
 } satisfies Story;

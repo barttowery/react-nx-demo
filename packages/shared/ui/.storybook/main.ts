@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
-import { mergeConfig } from 'vite';
+import { mergeConfig, optimizeDeps } from 'vite';
 
 import type { StorybookConfig } from '@storybook/react-vite';
 
@@ -32,6 +32,13 @@ const config: StorybookConfig = {
   async viteFinal(config) {
     return mergeConfig(config, {
       plugins: [tailwindcss()],
+      optimizeDeps: {
+        include: [
+          'aria-query',
+          'lz-string',
+          'pretty-format',
+        ]
+      },
     });
   }
 };

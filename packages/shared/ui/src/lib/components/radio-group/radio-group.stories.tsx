@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { RadioGroup, RadioGroupItem } from './radio-group';
 import { Label } from '../label/label';
 import { Field, FieldContent, FieldLabel, FieldDescription, FieldTitle, FieldSet, FieldLegend } from '../field/field';
+import { expect, within } from 'storybook/test';
 
 /** RadioGroup - A component that allows the user to select one option from a set of options. */
 const meta = {
@@ -217,5 +218,118 @@ export const InvalidExample: Story = {
         </RadioGroup>
       </FieldSet>
     );
+  },
+} satisfies Story;
+
+/** Radio Group Default Visual - Verifies the radio group renders correctly with default styling */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    defaultValue: 'comfortable',
+    className: 'w-fit',
+    children: (
+      <>
+        <div className="flex items-center gap-3">
+          <RadioGroupItem value="default" id="visual-r1" />
+          <Label htmlFor="visual-r1">Default</Label>
+        </div>
+        <div className="flex items-center gap-3">
+          <RadioGroupItem value="comfortable" id="visual-r2" />
+          <Label htmlFor="visual-r2">Comfortable</Label>
+        </div>
+        <div className="flex items-center gap-3">
+          <RadioGroupItem value="compact" id="visual-r3" />
+          <Label htmlFor="visual-r3">Compact</Label>
+        </div>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const comfortableOption = canvas.getByText(/Comfortable/i);
+    await expect(comfortableOption).toBeInTheDocument();
+    const radioInputs = canvas.getAllByRole('radio');
+    await expect(radioInputs).toHaveLength(3);
+  },
+} satisfies Story;
+
+/** Radio Group With Description Visual - Verifies radio group with descriptions renders correctly */
+export const WithDescriptionVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    defaultValue: 'comfortable',
+    className: 'w-fit',
+    children: (
+      <>
+        <Field orientation="horizontal">
+          <RadioGroupItem value="default" id="visual-desc-r1" />
+          <FieldContent>
+            <FieldLabel htmlFor="visual-desc-r1">Default</FieldLabel>
+            <FieldDescription>
+              Standard spacing for most use cases.
+            </FieldDescription>
+          </FieldContent>
+        </Field>
+        <Field orientation="horizontal">
+          <RadioGroupItem value="comfortable" id="visual-desc-r2" />
+          <FieldContent>
+            <FieldLabel htmlFor="visual-desc-r2">Comfortable</FieldLabel>
+            <FieldDescription>More space between elements.</FieldDescription>
+          </FieldContent>
+        </Field>
+        <Field orientation="horizontal">
+          <RadioGroupItem value="compact" id="visual-desc-r3" />
+          <FieldContent>
+            <FieldLabel htmlFor="visual-desc-r3">Compact</FieldLabel>
+            <FieldDescription>
+              Minimal spacing for dense layouts.
+            </FieldDescription>
+          </FieldContent>
+        </Field>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const defaultLabel = canvas.getByText(/Default/i);
+    await expect(defaultLabel).toBeInTheDocument();
+    const description = canvas.getByText(/Standard spacing for most use cases./i);
+    await expect(description).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Radio Group Disabled Visual - Verifies disabled radio group renders correctly */
+export const DisabledVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    defaultValue: 'option2',
+    className: 'w-fit',
+    children: (
+      <>
+        <Field orientation="horizontal" data-disabled>
+          <RadioGroupItem value="option1" id="visual-disabled-1" disabled />
+          <FieldLabel htmlFor="visual-disabled-1" className="font-normal">
+            Disabled
+          </FieldLabel>
+        </Field>
+        <Field orientation="horizontal">
+          <RadioGroupItem value="option2" id="visual-disabled-2" />
+          <FieldLabel htmlFor="visual-disabled-2" className="font-normal">
+            Option 2
+          </FieldLabel>
+        </Field>
+        <Field orientation="horizontal">
+          <RadioGroupItem value="option3" id="visual-disabled-3" />
+          <FieldLabel htmlFor="visual-disabled-3" className="font-normal">
+            Option 3
+          </FieldLabel>
+        </Field>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const disabledInput = canvas.getByRole('radio', { name: 'Disabled' });
+    await expect(disabledInput).toBeDisabled();
   },
 } satisfies Story;

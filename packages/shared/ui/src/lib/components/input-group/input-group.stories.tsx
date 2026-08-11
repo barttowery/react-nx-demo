@@ -8,6 +8,7 @@ import {
   CreditCardIcon,
   Search,
 } from "lucide-react";
+import { expect, within } from 'storybook/test';
 
 /** Input Group - A component that groups related inputs and addons, button, and helper content together. */
 const meta = {
@@ -122,5 +123,68 @@ export const WithTextarea = {
       </InputGroup>
     </div>
     );
+  },
+} satisfies Story;
+
+/** Input Group Primary Visual - Verifies the input group component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => (
+    <InputGroup className="max-w-xs">
+      <InputGroupInput placeholder="Search..." />
+      <InputGroupAddon>
+        <Search />
+      </InputGroupAddon>
+      <InputGroupAddon align="inline-end">12 results</InputGroupAddon>
+    </InputGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByPlaceholderText('Search...')).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Input Group With Icon Visual - Verifies the input group with icon addons renders correctly */
+export const WithIconVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => (
+    <InputGroup>
+      <InputGroupInput placeholder="Card number" />
+      <InputGroupAddon>
+        <CreditCardIcon />
+      </InputGroupAddon>
+      <InputGroupAddon align="inline-end">
+        <CheckIcon />
+      </InputGroupAddon>
+    </InputGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByPlaceholderText('Card number')).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Input Group With Text Addon Visual - Verifies the input group with text addons renders correctly */
+export const WithTextAddonVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => (
+    <InputGroup>
+      <InputGroupAddon>
+        <InputGroupText>$</InputGroupText>
+      </InputGroupAddon>
+      <InputGroupInput placeholder="0.00" />
+      <InputGroupAddon align="inline-end">
+        <InputGroupText>USD</InputGroupText>
+      </InputGroupAddon>
+    </InputGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByPlaceholderText('0.00')).toBeInTheDocument();
+    await expect(canvas.getByText('$')).toBeInTheDocument();
+    await expect(canvas.getByText('USD')).toBeInTheDocument();
   },
 } satisfies Story;

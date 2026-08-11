@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Skeleton } from './skeleton';
 import { Card, CardContent, CardHeader } from '../card/card';
+import { expect, within } from 'storybook/test';
 
 /** Skeleton - Displays a shimmering placeholder while content is loading */
 const meta = {
@@ -65,5 +66,79 @@ export const FormExample = {
         <Skeleton className="h-8 w-24" />
       </div>
     );
+  },
+} satisfies Story;
+
+/** Skeleton Avatar Visual - Verifies circular skeleton avatar renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => {
+    return (
+      <div className="flex items-center gap-4">
+        <Skeleton role="presentation" className="h-12 w-12 rounded-full" />
+        <div className="space-y-2">
+          <Skeleton role="presentation" className="h-4 w-62.5" />
+          <Skeleton role="presentation" className="h-4 w-50" />
+        </div>
+      </div>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const avatar = canvas.queryAllByRole('presentation')[0];
+    await expect(avatar).toBeInTheDocument();
+    await expect(avatar).toHaveClass('h-12 w-12 rounded-full');
+  },
+} satisfies Story;
+
+/** Skeleton Card Visual - Verifies skeleton card renders correctly */
+export const CardExampleVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => {
+    return (
+      <Card className="w-full max-w-xs">
+        <CardHeader>
+          <Skeleton role="presentation" className="h-4 w-2/3" />
+          <Skeleton role="presentation" className="h-4 w-1/2" />
+        </CardHeader>
+        <CardContent>
+          <Skeleton role="presentation" className="aspect-video w-full" />
+        </CardContent>
+      </Card>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const titleLine = canvas.queryAllByRole('presentation')[0];
+    await expect(titleLine).toBeInTheDocument();
+    await expect(titleLine).toHaveClass('h-4 w-2/3');
+  },
+} satisfies Story;
+
+/** Skeleton Form Visual - Verifies skeleton form renders correctly */
+export const FormExampleVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => {
+    return (
+      <div className="flex w-full max-w-xs flex-col gap-7">
+        <div className="flex flex-col gap-3">
+          <Skeleton role="presentation" className="h-4 w-20" />
+          <Skeleton role="presentation" className="h-8 w-full" />
+        </div>
+        <div className="flex flex-col gap-3">
+          <Skeleton role="presentation" className="h-4 w-24" />
+          <Skeleton role="presentation" className="h-8 w-full" />
+        </div>
+        <Skeleton role="presentation" className="h-8 w-24" />
+      </div>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const inputs = canvas.queryAllByRole('presentation');
+    await expect(inputs).toHaveLength(5);
   },
 } satisfies Story;

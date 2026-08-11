@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test';
 import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 import { Button } from '../button/button';
 
@@ -76,5 +77,29 @@ export const DisabledButton = {
         </TooltipContent>
       </>
     ),
+  },
+} satisfies Story;
+
+/** Tooltip Primary Visual - Verifies the tooltip component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    children: (
+      <>
+        <TooltipTrigger asChild>
+          <Button variant="outline">Hover</Button>
+        </TooltipTrigger>
+        <TooltipContent sideOffset={10}>
+          <p>Add to library</p>
+        </TooltipContent>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.hover(canvas.getByRole('button', { name: 'Hover' }));
+    await waitFor(() => {
+      expect(screen.getByText(/add to library/i)).toBeInTheDocument();
+    });
   },
 } satisfies Story;

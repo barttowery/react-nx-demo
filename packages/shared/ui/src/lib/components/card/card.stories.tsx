@@ -10,6 +10,7 @@ import {
 } from './card';
 import { Button } from '../button/button';
 import { Badge } from '../badge/badge';
+import { expect, screen, within } from 'storybook/test';
 
 /** Card - Displays a card with header, content, and footer. */
 const meta = {
@@ -157,5 +158,54 @@ export const Image = {
         </CardFooter>
       </>
     ),
+  },
+} satisfies Story;
+
+/** Card Primary Visual - Verifies the card component renders correctly with default content */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    className: "mx-auto w-full max-w-sm",
+    children: (
+      <CardContent>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </CardContent>
+    ),
+    role: 'article'
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const card = canvas.getByRole('article');
+    await expect(card).toBeInTheDocument();
+    await expect(card).toHaveClass('rounded-xl bg-card text-card-foreground');
+  },
+} satisfies Story;
+
+/** Card With Header and Footer Visual - Verifies the card with header and footer renders correctly */
+export const WithHeaderAndFooterVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    className: "mx-auto w-full max-w-sm",
+    children: (
+      <>
+        <CardHeader>
+          <CardTitle>Header Footer Card</CardTitle>
+          <CardDescription>This card uses a header and a footer.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p>The card component supports a size prop.</p>
+        </CardContent>
+        <CardFooter>
+          <Button variant="outline" size="sm" className="w-full">Action</Button>
+        </CardFooter>
+      </>
+    ),
+    role: 'article'
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const card = canvas.getByRole('article');
+    await expect(card).toBeInTheDocument();
+    expect(screen.getByText(/Header Footer Card/i)).toBeInTheDocument();
   },
 } satisfies Story;

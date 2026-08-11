@@ -3,6 +3,7 @@ import { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitl
 import { Button } from '../button/button';
 import { Input } from '../input/input';
 import { Field, FieldGroup, FieldLabel } from '../field/field';
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test';
 
 /** Popover - Displays content in a portal when triggered by a button. */
 const meta = {
@@ -110,5 +111,74 @@ export const WithForm = {
         </PopoverContent>
       </>
     ),
+  },
+} satisfies Story;
+
+/** Popover Primary Visual - Verifies the popover component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline">Open Popover</Button>
+      </PopoverTrigger>
+      <PopoverContent align="start" className="w-40">
+        <PopoverHeader>
+          <PopoverTitle>Dimensions</PopoverTitle>
+          <PopoverDescription>
+            Set the dimensions for the layer.
+          </PopoverDescription>
+        </PopoverHeader>
+      </PopoverContent>
+    </Popover>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Open Popover')).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Popover With Form Visual - Verifies the popover with form renders correctly */
+export const WithFormVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => (
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button variant="outline">Open Popover</Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-64" align="start">
+        <PopoverHeader>
+          <PopoverTitle>Dimensions</PopoverTitle>
+          <PopoverDescription>
+            Set the dimensions for the layer.
+          </PopoverDescription>
+        </PopoverHeader>
+        <FieldGroup className="gap-4">
+          <Field orientation="horizontal">
+            <FieldLabel htmlFor="width" className="w-1/2">
+              Width
+            </FieldLabel>
+            <Input id="width" data-testid="width" defaultValue="100%" />
+          </Field>
+          <Field orientation="horizontal">
+            <FieldLabel htmlFor="height" className="w-1/2">
+              Height
+            </FieldLabel>
+            <Input id="height" defaultValue="25px" />
+          </Field>
+        </FieldGroup>
+      </PopoverContent>
+    </Popover>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Open Popover')).toBeInTheDocument();
+    await userEvent.click(canvas.getByRole('button', { name: 'Open Popover' }));
+    await waitFor(() => {
+      expect(screen.getByDisplayValue('100%')).toBeInTheDocument();
+      expect(screen.getByDisplayValue('25px')).toBeInTheDocument();
+    });
   },
 } satisfies Story;

@@ -10,6 +10,7 @@ import {
   SelectSeparator,
 } from './select';
 import { Field, FieldError, FieldLabel } from '../field/field';
+import { expect, within } from 'storybook/test';
 
 /** Select - A component that allows users to select an option from a dropdown list. */
 const meta = {
@@ -181,5 +182,33 @@ export const Invalid = {
         <FieldError>Please select a fruit.</FieldError>
       </Field>
     );
+  },
+} satisfies Story;
+
+
+/** Select Primary Visual - Verifies the select component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    children: (
+      <>
+        <SelectTrigger aria-label="Select a Fruit" className="w-full max-w-48">
+          <SelectValue placeholder="Select a fruit" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Fruits</SelectLabel>
+            <SelectItem value="apple">Apple</SelectItem>
+            <SelectItem value="banana">Banana</SelectItem>
+            <SelectItem value="blueberry">Blueberry</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </>
+    ),
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('combobox')).toBeInTheDocument();
+    await expect(canvas.getByText(/Select a fruit/i)).toBeInTheDocument();
   },
 } satisfies Story;

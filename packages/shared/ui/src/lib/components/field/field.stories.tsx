@@ -18,6 +18,7 @@ import { useState } from 'react';
 import { Checkbox } from '../checkbox/checkbox';
 import { RadioGroup, RadioGroupItem } from '../radio-group/radio-group';
 import { Switch } from '../switch/switch';
+import { expect, within } from 'storybook/test';
 
 /** Field - A component that provides a consistent layout for form fields, including label, description, and error messages. */
 const meta = {
@@ -341,3 +342,90 @@ export const FieldGroupExample: Story = {
     );
   }
 };
+
+/** Field With Input Visual - Verifies field with input renders correctly */
+export const InputWithFieldVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  render: (args) => {
+    return (
+      <FieldSet className="w-full max-w-xs">
+        <FieldGroup>
+          <Field>
+            <FieldLabel htmlFor="username">Username</FieldLabel>
+            <Input id="username" type="text" placeholder="Bob Jones" />
+            <FieldDescription>
+              Choose a unique username for your account.
+            </FieldDescription>
+          </Field>
+          <Field>
+            <FieldLabel htmlFor="password">Password</FieldLabel>
+            <FieldDescription>
+              Must be at least 8 characters long.
+            </FieldDescription>
+            <Input id="password" type="password" placeholder="••••••••" />
+          </Field>
+        </FieldGroup>
+      </FieldSet>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const usernameLabel = await canvas.getAllByText(/Username/i);
+    await expect(usernameLabel[0]).toBeInTheDocument();
+    const usernameInput = canvas.getByPlaceholderText(/Bob Jones/i);
+    await expect(usernameInput).toBeInTheDocument();
+    await expect(usernameInput).toHaveAttribute('id', 'username');
+  },
+} satisfies Story;
+
+/** Field With Textarea Visual - Verifies field with textarea renders correctly */
+export const TextareaWithFieldVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  render: (args) => {
+    return (
+      <FieldSet className="w-full max-w-xs">
+        <FieldGroup>
+          <Field>
+            <FieldLabel htmlFor="feedback">Feedback</FieldLabel>
+            <Textarea
+              id="feedback"
+              placeholder="Your feedback helps us improve..."
+              rows={4}
+            />
+            <FieldDescription>
+              Share your thoughts about our service.
+            </FieldDescription>
+          </Field>
+        </FieldGroup>
+      </FieldSet>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const feedbackLabel = canvas.getByText(/Feedback/i);
+    await expect(feedbackLabel).toBeInTheDocument();
+    const textarea = canvas.getByPlaceholderText(/Your feedback helps us improve.../i);
+    await expect(textarea).toBeInTheDocument();
+    await expect(textarea).toHaveAttribute('id', 'feedback');
+  },
+} satisfies Story;
+
+/** Field With Switch Visual - Verifies field with switch renders correctly */
+export const SwitchExampleVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  render: (args) => {
+    return (
+      <Field orientation="horizontal" className="w-fit">
+        <FieldLabel htmlFor="2fa">Multi-factor authentication</FieldLabel>
+        <Switch id="2fa" />
+      </Field>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const switchLabel = canvas.getByText(/Multi-factor authentication/i);
+    await expect(switchLabel).toBeInTheDocument();
+    const switchInput = canvas.getByRole('switch', { name: /Multi-factor authentication/i });
+    await expect(switchInput).toBeInTheDocument();
+  },
+} satisfies Story;

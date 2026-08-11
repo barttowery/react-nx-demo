@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Separator } from './separator';
+import { expect, within } from 'storybook/test';
 
 /** Separator - A visual separator used to divide content or sections. Can be horizontal or vertical. */
 const meta = {
@@ -54,5 +55,42 @@ export const HorizontalList = {
         </dl>
       </div>
     );
+  },
+} satisfies Story;
+
+/** Separator Horizontal Visual - Verifies horizontal separator renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const separator = canvas.getByRole('none');
+    await expect(separator).toBeInTheDocument();
+    await expect(separator).toHaveClass('shrink-0 bg-border');
+  },
+} satisfies Story;
+
+/** Separator Vertical Visual - Verifies vertical separator renders correctly */
+export const VerticalVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  render: (args) => {
+    return (
+      <div className="flex h-5 items-center gap-4 text-sm">
+        <div>Home</div>
+        <Separator orientation="vertical" />
+        <div>Docs</div>
+        <Separator orientation="vertical" />
+        <div>Source</div>
+      </div>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const separators = canvas.getAllByRole('none');
+    await expect(separators.length).toBe(2);
+    for (const sep of separators) {
+      await expect(sep).toBeInTheDocument();
+      await expect(sep).toHaveClass('shrink-0 bg-border');
+    }
   },
 } satisfies Story;

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { Slider } from './slider';
 
 /** Slider - A component that allows users to select a value from a range of values. */
@@ -69,5 +70,38 @@ export const Disabled = {
     disabled: true,
     className: 'mx-auto w-full max-w-xs',
     "aria-label": 'Disabled Slider',
+  },
+} satisfies Story;
+
+/** Primary Visual - Verifies the slider component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    defaultValue: [50],
+    max: 100,
+    step: 1,
+    className: 'mx-auto w-full max-w-xs',
+    "aria-label": 'Slider',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('slider')).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Range Visual - Verifies the range slider component renders correctly */
+export const RangeVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    defaultValue: [20, 80],
+    max: 100,
+    step: 5,
+    className: 'mx-auto w-full max-w-xs',
+    "aria-label": 'Range Slider',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const sliders = canvas.queryAllByRole('slider');
+    await expect(sliders).toHaveLength(2);
   },
 } satisfies Story;

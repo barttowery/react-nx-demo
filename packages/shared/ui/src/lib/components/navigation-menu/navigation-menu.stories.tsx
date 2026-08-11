@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from './navigation-menu';
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test';
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -29,7 +30,7 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Tabs",
     href: "/docs/primitives/tabs",
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "A set of layered sections of content known as tab panels that are displayed one at a time.",
   },
   {
     title: "Tooltip",
@@ -114,3 +115,75 @@ function ListItem({
     </li>
   )
 }
+
+/** Navigation Menu Primary Visual - Verifies the navigation menu component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="w-96">
+              <ListItem href="/docs" title="Introduction">
+                Re-usable components built with Tailwind CSS.
+              </ListItem>
+              <ListItem href="/docs/installation" title="Installation">
+                How to install dependencies and structure your app.
+              </ListItem>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <a href="/docs">Docs</a>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Getting started')).toBeInTheDocument();
+    await expect(canvas.getByText('Docs')).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Navigation Menu With Components Visual - Verifies the navigation menu with components renders correctly */
+export const WithComponentsVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem className="hidden md:flex">
+          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
+              {components.slice(0, 4).map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Components')).toBeInTheDocument();
+    await userEvent.hover(canvas.getByRole('button', { name: 'Components' }));
+    await waitFor(() => {
+      expect(canvas.getByText('Alert Dialog')).toBeInTheDocument();
+      expect(canvas.getByText('Hover Card')).toBeInTheDocument();
+    });
+  },
+} satisfies Story;
