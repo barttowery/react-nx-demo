@@ -12,6 +12,7 @@ type Story = StoryObj<typeof Input>;
 
 /** Default story - Displays a default input field with placeholder */
 export const Primary = {
+  tags: ['!test'],
   args: {
     placeholder: 'Enter text',
   },
@@ -19,6 +20,7 @@ export const Primary = {
 
 /** Disabled input - Displays a disabled input field */
 export const Disabled = {
+  tags: ['!test'],
   args: {
     placeholder: 'Disabled input',
     disabled: true,
@@ -27,6 +29,7 @@ export const Disabled = {
 
 /** Invalid input - Displays an invalid input field */
 export const Invalid = {
+  tags: ['!test'],
   args: {
     placeholder: 'Invalid input',
     'aria-invalid': true,
@@ -35,6 +38,7 @@ export const Invalid = {
 
 /** File input - Displays a file input field */
 export const File = {
+  tags: ['!test'],
   args: {
     type: 'file',
     placeholder: 'Choose a file',

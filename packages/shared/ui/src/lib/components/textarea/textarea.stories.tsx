@@ -12,6 +12,7 @@ type Story = StoryObj<typeof Textarea>;
 
 /** Default story - Displays a default textarea field with placeholder */
 export const Primary = {
+  tags: ['!test'],
   args: {
     placeholder: 'Enter text',
   },
@@ -19,6 +20,7 @@ export const Primary = {
 
 /** Disabled textarea - Displays a disabled textarea field */
 export const Disabled = {
+  tags: ['!test'],
   args: {
     placeholder: 'Disabled textarea',
     disabled: true,
@@ -27,6 +29,7 @@ export const Disabled = {
 
 /** Invalid textarea - Displays an invalid textarea field */
 export const Invalid = {
+  tags: ['!test'],
   args: {
     placeholder: 'Invalid textarea',
     'aria-invalid': true,

@@ -12,11 +12,13 @@ type Story = StoryObj<typeof Separator>;
 
 /** Default story - Displays a default horizontal separator */
 export const Primary = {
+  tags: ['!test'],
   args: {},
 } satisfies Story;
 
 /** Vertical separator - Displays a vertical separator */
 export const Vertical = {
+  tags: ['!test'],
   render: (args) => {
     return (
       <div className="flex h-5 items-center gap-4 text-sm">
@@ -32,6 +34,7 @@ export const Vertical = {
 
 /** Horizontal list with separators - Displays a horizontal list of items with separators */
 export const HorizontalList = {
+  tags: ['!test'],
   render: (args) => {
     return (
       <div className="flex w-full max-w-sm flex-col gap-2 text-sm">

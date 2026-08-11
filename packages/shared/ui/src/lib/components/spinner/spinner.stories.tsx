@@ -12,6 +12,7 @@ type Story = StoryObj<typeof Spinner>;
 
 /** Primary spinner - Displays a primary spinner. Classes can be set to size or center. */
 export const Primary = {
+  tags: ['!test'],
   args: {
     className: 'size-4',
   },

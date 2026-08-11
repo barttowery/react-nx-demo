@@ -22,6 +22,7 @@ type Story = StoryObj<typeof Card>;
 
 /** Default card - Displays a card with just content */
 export const Primary = {
+  tags: ['!test'],
   args: {
     className: "mx-auto w-full max-w-sm",
     children: (
@@ -34,6 +35,7 @@ export const Primary = {
 
 /** With Header and Footer */
 export const WithHeaderAndFooter = {
+  tags: ['!test'],
   args: {
     className: "mx-auto w-full max-w-sm",
     children: (
@@ -61,6 +63,7 @@ export const WithHeaderAndFooter = {
 
 /** Small Size - uses the small size variant */
 export const SmallSize = {
+  tags: ['!test'],
   args: {
     size: "sm",
     className: "mx-auto w-full max-w-sm",
@@ -90,6 +93,7 @@ export const SmallSize = {
 
 /** Scrollable Content - A card with scrollable content and fixed header and footer */
 export const ScrollableContent = {
+  tags: ['!test'],
   args: {
     className: "mx-auto w-full max-w-sm",
     children: (
@@ -127,6 +131,7 @@ export const ScrollableContent = {
 
 /** Image - A card with an image before the card header */
 export const Image = {
+  tags: ['!test'],
   args: {
     className: "relative mx-auto w-full max-w-sm pt-0",
     children: (

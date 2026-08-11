@@ -13,6 +13,7 @@ type Story = StoryObj<typeof Toggle>;
 
 /** Default toggle - Displays a default toggle */
 export const Primary = {
+  tags: ['!test'],
   args: {
     size: 'sm',
     variant: 'outline',

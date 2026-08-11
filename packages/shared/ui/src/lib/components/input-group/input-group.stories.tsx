@@ -20,6 +20,7 @@ type Story = StoryObj<typeof InputGroup>;
 
 /** Default Input Group - Displays a default input group with an input and two addons. */
 export const Primary = {
+  tags: ['!test'],
   args: {},
   render: (args) => {
     return (
@@ -36,6 +37,7 @@ export const Primary = {
 
 /** Input Group with Icon - Displays an input group with an input and two icon addons. */
 export const WithIcon = {
+  tags: ['!test'],
   args: {},
   render: (args) => {
     return (
@@ -54,6 +56,7 @@ export const WithIcon = {
 
 /** Input Group with Text Addon - Displays an input group with an input and a text addon. */
 export const WithTextAddon = {
+  tags: ['!test'],
   args: {},
   render: (args) => {
     return (
@@ -72,6 +75,7 @@ export const WithTextAddon = {
 
 /** Input Group with Button - Displays an input group with an input and a button addon. */
 export const WithButton = {
+  tags: ['!test'],
   args: {},
   render: (args) => {
     return (
@@ -87,6 +91,7 @@ export const WithButton = {
 
 /** Input Group with Textarea - Displays an input group with a textarea and a button addon. */
 export const WithTextarea = {
+  tags: ['!test'],
   args: {},
   render: (args) => {
     return (

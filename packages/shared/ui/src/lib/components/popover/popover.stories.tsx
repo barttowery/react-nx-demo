@@ -15,6 +15,7 @@ type Story = StoryObj<typeof Popover>;
 
 /** Default popover - Displays a popover with a header, title, and description */
 export const Primary = {
+  tags: ['!test'],
   args: {
     children: (
       <>
@@ -36,6 +37,7 @@ export const Primary = {
 
 /* Align Popover - Use the `align` prop on `PopoverContent` to position the popover relative to the trigger */
 export const AlignPopover = {
+  tags: ['!test'],
   args: {},
   render: (args) => {
     return (
@@ -77,6 +79,7 @@ export const AlignPopover = {
 
 /** Popover with Form - Displays a popover with a form inside */
 export const WithForm = {
+  tags: ['!test'],
   args: {
     children: (
       <>

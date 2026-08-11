@@ -17,7 +17,6 @@ export * from './lib/components/label/label';
 export * from './lib/components/input/input';
 export * from './lib/components/field/field';
 export * from './lib/components/dialog/dialog';
-export * from './lib/components/date-picker/date-picker';
 export * from './lib/components/calendar/calendar';
 export * from './lib/components/combobox/combobox';
 export * from './lib/components/checkbox/checkbox';

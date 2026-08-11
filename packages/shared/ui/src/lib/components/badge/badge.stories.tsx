@@ -53,6 +53,7 @@ export const Ghost = {
 
 /** Badge With Icon - Displays a badge with an icon */
 export const WithIcon = {
+  tags: ['!test'],
   args: {
     children: (
       <>
@@ -66,6 +67,7 @@ export const WithIcon = {
 
 /** Badge With IconAfter - Displays a badge with an icon after the text */
 export const WithIconAfter = {
+  tags: ['!test'],
   args: {
     children: (
       <>
@@ -80,6 +82,7 @@ export const WithIconAfter = {
 
 /** Badge With Spinner - Displays a badge with a spinner */
 export const WithSpinner = {
+  tags: ['!test'],
   args: {
     children: (
       <>

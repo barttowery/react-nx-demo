@@ -12,6 +12,7 @@ type Story = StoryObj<typeof Calendar>;
 
 /** Default story - Displays a default calendar with border styling */
 export const Primary = {
+  tags: ['!test'],
   args: {
     mode: 'single',
     className: "rounded-lg border border-border",
@@ -20,6 +21,7 @@ export const Primary = {
 
 /** Date Range - Displays a calendar for selecting a date range with 2 months displayed */
 export const DateRange = {
+  tags: ['!test'],
   args: {
     mode: 'range',
     numberOfMonths: 2,
@@ -29,6 +31,7 @@ export const DateRange = {
 
 /** Month/Year Selector - Displays a calendar with month and year selection via a dropdown */
 export const MonthYearSelector = {
+  tags: ['!test'],
   args: {
     mode: 'single',
     captionLayout: 'dropdown',

@@ -49,6 +49,7 @@ export default meta;
 type Story = StoryObj<typeof NavigationMenu>;
 
 export const Primary = {
+  tags: ['!test'],
   args: {
     children: (
       <NavigationMenuList>

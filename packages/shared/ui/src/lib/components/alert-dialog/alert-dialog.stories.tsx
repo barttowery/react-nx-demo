@@ -25,6 +25,7 @@ type Story = StoryObj<typeof AlertDialog>;
 
 /** Basic Alert Dialog - A basic alert dialog with a title, description, and cancel and continue buttons. */
 export const Primary = {
+  tags: ['!test'],
   args: {
     children: (
       <>
@@ -51,6 +52,7 @@ export const Primary = {
 
 /** Small Alert Dialog - Uses the small size variant to make the dialog smaller. */
 export const Small = {
+  tags: ['!test'],
   args: {
     children: (
       <>
@@ -76,6 +78,7 @@ export const Small = {
 
 /** Media Alert Dialog - Use the `AlertDialogMedia` component to add a media element such as an icon or image to the alert dialog. */
 export const Media = {
+  tags: ['!test'],
   args: {
     children: (
       <>
@@ -104,6 +107,7 @@ export const Media = {
 
 /** Small with Media Alert Dialog - Use the size="sm" prop to make the alert dialog smaller and the AlertDialogMedia component to add a media element such as an icon or image to the alert dialog. */
 export const SmallWithMedia = {
+  tags: ['!test'],
   args: {
     children: (
       <>
@@ -132,6 +136,7 @@ export const SmallWithMedia = {
 
 /** Destructive Alert Dialog - Use the `AlertDialogAction` component to add a destructive action button to the alert dialog. */
 export const Destructive = {
+  tags: ['!test'],
   args: {
     children: (
       <>

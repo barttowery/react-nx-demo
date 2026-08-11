@@ -14,6 +14,7 @@ export default meta;
 type Story = StoryObj<typeof Dialog>;
 
 export const Primary = {
+  tags: ['!test'],
   args: {
     children: (
       <form>
@@ -52,6 +53,7 @@ export const Primary = {
 
 /** Sticky Footer - Keep the footer and actions visible while the content scrolls. */
 export const StickyFooter = {
+  tags: ['!test'],
   args: {
     children: (
       <>

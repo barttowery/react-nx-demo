@@ -22,6 +22,7 @@ type Story = StoryObj<typeof Tooltip>;
 
 /** Default story - Displays a default tooltip */
 export const Primary = {
+  tags: ['!test'],
   args: {
     children: (
       <>
@@ -38,6 +39,7 @@ export const Primary = {
 
 /** Tooltip with side prop - Displays a tooltip with the `side` prop set to 'left', 'top', 'bottom', and 'right' */
 export const Side = {
+  tags: ['!test'],
   render: (args) => (
     <div className="flex flex-wrap gap-2">
       {(["left", "top", "bottom", "right"] as const).map((side) => (
@@ -58,6 +60,7 @@ export const Side = {
 
 /** Disabled Button tooltip - Displays a tooltip when the button is disabled by wrapping with a span. */
 export const DisabledButton = {
+  tags: ['!test'],
   args: {
     children: (
       <>

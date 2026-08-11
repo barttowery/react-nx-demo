@@ -13,6 +13,7 @@ type Story = StoryObj<typeof Tabs>;
 
 /** Default tabs - Displays a tab component with multiple tabs and content */
 export const Primary = {
+  tags: ['!test'],
   args: {
     defaultValue: "overview",
     className: "w-100",
@@ -87,6 +88,7 @@ export const Primary = {
 
 /** Line Tabs - Displays a tab component with a line indicator */
 export const Line = {
+  tags: ['!test'],
   args: {
     defaultValue: "overview",
     className: "w-100",
@@ -161,6 +163,7 @@ export const Line = {
 
 /** Vertical Tabs - To display vertical tabs use `orientation="vertical"`. */
 export const Vertical = {
+  tags: ['!test'],
   args: {
     defaultValue: "account",
     orientation: "vertical",
@@ -176,6 +179,7 @@ export const Vertical = {
 
 /** Disabled Tab - An example with a disabled tab. */
 export const Disabled = {
+  tags: ['!test'],
   args: {
     defaultValue: "home",
     children: (

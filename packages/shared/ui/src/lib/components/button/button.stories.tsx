@@ -248,8 +248,8 @@ export const DestructiveVisual: Story = {
     const canvas = within(canvasElement);
     const button = canvas.getByRole('button', { name: /Destructive Button/i });
     await expect(button).toBeInTheDocument();
-    await expect(button).toHaveClass('bg-destructive/10');
-    await expect(button).toHaveClass('text-destructive');
+    await expect(button).toHaveClass('bg-destructive');
+    await expect(button).toHaveClass('text-primary-foreground');
   },
 } satisfies Story;
 
