@@ -62,7 +62,10 @@
   "workspaces": [
     "packages/*",
     "apps/*",
-    "packages/shared/*"
+    "packages/shared/*",
+    "packages/platform/*",
+    "packages/overview/*",
+    "packages/sales/*"
   ],
   "dependencies": {
     "@base-ui/react": "^1.7.0",

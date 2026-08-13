@@ -32,7 +32,7 @@ export default defineConfig(() => ({
     lib: {
       // Could also be a dictionary or array of multiple entry points.
       entry: 'src/index.ts',
-      name: '@react-nx-demo/utils',
+      name: '@react-nx-demo/shared-utils',
       fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
@@ -44,7 +44,7 @@ export default defineConfig(() => ({
     },
   },
   test: {
-    name: '@react-nx-demo/utils',
+    name: '@react-nx-demo/shared-utils',
     watch: false,
     globals: true,
     environment: 'jsdom',

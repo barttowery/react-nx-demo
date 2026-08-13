@@ -11,7 +11,24 @@
     },
     {
       "path": "./packages/shared/utils"
+    },
+    {
+      "path": "./packages/platform/ui"
+    },
+    {
+      "path": "./packages/overview/ui"
+    },
+    {
+      "path": "./packages/sales/ui"
+    },
+    {
+      "path": "./packages/sales/feature"
+    },
+    {
+      "path": "./packages/overview/feature"
+    },
+    {
+      "path": "./packages/platform/models"
     }
   ],
-  "compilerOptions": {}
 }

@@ -1,0 +1,9 @@
+@import './../../../../global.css';
+
+body {
+  background: var(--card);
+}
+
+.docs-story {
+  background: var(--card);
+}

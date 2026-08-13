@@ -1,3 +1,4 @@
+export * from './lib/components/sheet/sheet';
 export * from './lib/components/item/item';
 export * from './lib/components/input-group/input-group';
 export * from './lib/components/tooltip/tooltip';
