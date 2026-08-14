@@ -3,6 +3,7 @@ import { Theme } from '@react-nx-demo/platform-models';
 import { SquareCodeIcon, MoonStarIcon, SunIcon, PaletteIcon } from 'lucide-react';
 import MainNavigation from '../main-navigation/main-navigation';
 import NavigationSheet from '../navigation-sheet/navigation-sheet';
+import { Link } from 'react-router-dom';
 
 export interface HeaderProps {
   currentTheme: Theme;
@@ -18,12 +19,12 @@ export function Header({
     <header className='sticky top-0 z-50 flex min-h-20 w-full shrink-0 items-center justify-center border-b border-border backdrop-blur-sm bg-background'>
       <div className='mx-auto flex h-full w-full max-w-350 items-center min-[1800px]:max-w-384'>
         <div className='flex w-full items-center justify-between gap-2 px-4 max-lg:gap-4 sm:px-6 lg:px-8'>
-          <a aria-label='React Nx Demo' href="/">
+          <Link aria-label='React Nx Demo' to="/">
             <div className='flex items-center justify-between gap-2 px-4 max-lg:gap-4 sm:px-6 lg:px-8 max-[550px]:[&_span]:hidden'>
               <SquareCodeIcon className='size-8.5 text-primary' />
               <span className='text-xl font-bold text-foreground'>React Nx Demo</span>
             </div>
-          </a>
+          </Link>
           <div className='flex items-center justify-end gap-2 lg:justify-between'>
             <div className='min-[1000px]:hidden flex items-center'>
               <NavigationSheet />

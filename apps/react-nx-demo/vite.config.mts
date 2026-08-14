@@ -3,6 +3,8 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import Unfonts from 'unplugin-fonts/vite';
 import tailwindcss from '@tailwindcss/vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
+import path from 'path';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
@@ -17,6 +19,9 @@ export default defineConfig(() => ({
   },
   plugins: [
     react(),
+    tsconfigPaths({
+      root: '../../'
+    }),
     tailwindcss(),
     Unfonts({
       google: {
@@ -24,6 +29,9 @@ export default defineConfig(() => ({
       }
     })
   ],
+  resolve: {
+    tsconfigPaths: true,
+  },
   // Uncomment this if you are using workers.
   // worker: {
   //  plugins: [],

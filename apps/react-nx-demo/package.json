@@ -1,5 +1,12 @@
 {
   "name": "@react-nx-demo/react-nx-demo",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "@react-nx-demo/overview-feature": "*",
+    "@react-nx-demo/platform-models": "*",
+    "@react-nx-demo/platform-ui": "*",
+    "@react-nx-demo/sales-feature": "*",
+    "@react-nx-demo/shared-ui": "*"
+  }
 }

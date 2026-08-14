@@ -1,3 +1,8 @@
 @import '../../../global.css';
 
+@source "../../../packages/overview/feature";
+@source "../../../packages/overview/ui";
+@source "../../../packages/platform/ui";
+@source "../../../packages/sales/feature";
+@source "../../../packages/sales/ui";
 @source "../../../packages/shared/ui";

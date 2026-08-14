@@ -2,17 +2,20 @@
   "name": "@react-nx-demo/shared-ui",
   "version": "0.0.1",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./src/index.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "@react-nx-demo/source": "./src/index.ts",
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "default": "./dist/index.js"
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
     }
+  },
+  "nx": {
+    "tags": [
+      "scope:shared",
+      "type:ui"
+    ]
   },
   "devDependencies": {
     "@react-nx-demo/shared-utils": "*"

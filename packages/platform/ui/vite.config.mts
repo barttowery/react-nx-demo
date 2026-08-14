@@ -86,7 +86,7 @@ export default defineConfig(() => ({
       {
         extends: true as const,
         test: {
-          name: 'shared-ui',
+          name: 'platform-ui',
           globals: true,
           environment: 'jsdom',
           setupFiles: ['./src/test-setup.ts'],

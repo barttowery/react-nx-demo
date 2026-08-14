@@ -30,5 +30,22 @@
     "eslint.config.cjs",
     "eslint.config.mjs"
   ],
-  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
+  "references": [
+    {
+      "path": "../../packages/shared/ui/tsconfig.lib.json"
+    },
+    {
+      "path": "../../packages/sales/feature/tsconfig.lib.json"
+    },
+    {
+      "path": "../../packages/platform/ui/tsconfig.lib.json"
+    },
+    {
+      "path": "../../packages/platform/models/tsconfig.lib.json"
+    },
+    {
+      "path": "../../packages/overview/feature/tsconfig.lib.json"
+    }
+  ]
 }

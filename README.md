@@ -9,6 +9,7 @@ This is a potential architectural approach that I would take for a React solutio
 Note that this solution is a work in progress. It is not completed. The current functionality is done (or at least has a first draft).
 
 - Shared Components Storybook - The design library of shared components to be used in this solution. Many of these are based of [ShadCn](https://ui.shadcn.com/)/[Radix UI](https://www.radix-ui.com/). To start the Shared Components Storybook, run `npx nx storybook shared-ui`.
+- Web Application - The basic web application exists. The header and basic page layout is done. Buttons for light/dark mode and green/blue theme switcher are working. Navigation works for the full size and mobile. The Component Overview area is started.
 
 ## What is inside?
 
