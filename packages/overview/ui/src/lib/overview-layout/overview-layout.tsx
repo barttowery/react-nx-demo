@@ -1,3 +1,4 @@
+import ChatDemo from "../chat-demo/chat-demo";
 import Colors from "../colors/colors";
 import LoadingExample from "../loading-example/loading-example";
 import ShippingAddress from "../shipping-address/shipping-address";
@@ -12,6 +13,7 @@ export function OverviewLayout() {
         <Colors />
         <ShippingAddress />
         <LoadingExample />
+        <ChatDemo />
         <Colors />
         <Colors />
         <Colors />
