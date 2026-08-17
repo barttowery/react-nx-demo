@@ -3,7 +3,7 @@ import { PieChartDemo } from './pie-chart-demo';
 
 const meta = {
   component: PieChartDemo,
-  title: 'Pie Chart Demo',
+  title: 'Overview/Pie Chart Demo',
 } satisfies Meta<typeof PieChartDemo>;
 export default meta;
 

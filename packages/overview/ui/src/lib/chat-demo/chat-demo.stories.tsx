@@ -3,7 +3,7 @@ import { ChatDemo } from './chat-demo';
 
 const meta = {
   component: ChatDemo,
-  title: 'Chat Demo',
+  title: 'Overview/Chat Demo',
 } satisfies Meta<typeof ChatDemo>;
 export default meta;
 

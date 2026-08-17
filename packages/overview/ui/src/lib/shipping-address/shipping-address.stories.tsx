@@ -4,7 +4,7 @@ import { expect } from 'storybook/test';
 
 const meta = {
   component: ShippingAddress,
-  title: 'ShippingAddress',
+  title: 'Overview/Shipping Address',
 } satisfies Meta<typeof ShippingAddress>;
 export default meta;
 

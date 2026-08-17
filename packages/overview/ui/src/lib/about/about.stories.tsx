@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Colors } from './colors';
+import { About } from './about';
 
 const meta = {
-  component: Colors,
-  title: 'Overview/Colors',
-} satisfies Meta<typeof Colors>;
+  component: About,
+  title: 'About/Full Page',
+} satisfies Meta<typeof About>;
 export default meta;
 
-type Story = StoryObj<typeof Colors>;
+type Story = StoryObj<typeof About>;
 
 export const Primary = {
   args: {},

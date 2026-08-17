@@ -5,11 +5,15 @@ import {
   SheetContent,
   SheetTrigger,
 } from '@react-nx-demo/shared-ui';
-import { BadgeDollarSign, Menu, PackagePlus, Puzzle, Sparkles, SquareCode, TypeOutline } from 'lucide-react';
+import { BadgeDollarSign, Menu, Sparkles, SquareCode, User, Workflow } from 'lucide-react';
+import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 export function NavigationSheet() {
+  const [ open, setOpen ] = useState(false);
+
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <Button size='icon' variant='outline'><Menu /></Button>
       </SheetTrigger>
@@ -24,28 +28,24 @@ export function NavigationSheet() {
             </a>
           </div>
           <div className='flex grow flex-col gap-0.5 overflow-y-auto px-4 pb-6'>
-            <span className='flex items-center gap-2 px-4 py-2 text-foreground text-base'>Coming Soon</span>
-            <a className="flex items-center gap-2 px-4 py-2 text-muted-foreground" href="/coming">
+            <span className='flex items-center gap-2 px-4 py-2 text-foreground text-base'>Demos</span>
+            <Link className="flex items-center gap-2 px-4 py-2 text-muted-foreground" onClick={() => setOpen(false)} to="/overview">
               <Sparkles />
-              Introduction
-            </a>
-            <a className="flex items-center gap-2 px-4 py-2 text-muted-foreground" href="/coming">
-              <PackagePlus />
-              Installation
-            </a>
-            <a className="flex items-center gap-2 px-4 py-2 text-muted-foreground" href="/coming">
-              <TypeOutline />
-              Typography
-            </a>
-            <Separator />
-            <a className="flex items-center gap-2 px-4 py-2 text-muted-foreground" href="/overview">
-              <Puzzle />
               Component Overview
-            </a>
+            </Link>
+            <Link className="flex items-center gap-2 px-4 py-2 text-muted-foreground" onClick={() => setOpen(false)} to="/">
+              <Workflow />
+              Workflow Demo (COMING SOON)
+            </Link>
             <Separator />
-            <a className="flex items-center gap-2 px-4 py-2 text-muted-foreground" href="/sales">
+            <Link className="flex items-center gap-2 px-4 py-2 text-muted-foreground" onClick={() => setOpen(false)} to="/sales">
               <BadgeDollarSign />
               Sales Demo
+            </Link>
+            <Separator />
+            <a className="flex items-center gap-2 px-4 py-2 text-muted-foreground" onClick={() => setOpen(false)} href="/overview/about">
+              <User />
+              About Me
             </a>
             <Separator />
             <a className="flex items-center gap-2 px-4 py-2 text-muted-foreground" href="https://github.com/barttowery" target="_blank" rel="noreferrer">

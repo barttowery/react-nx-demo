@@ -3,7 +3,7 @@ import { SavingsTargetDemo } from './savings-target-demo';
 
 const meta = {
   component: SavingsTargetDemo,
-  title: 'Savings Target Demo',
+  title: 'Overview/Savings Target Demo',
 } satisfies Meta<typeof SavingsTargetDemo>;
 export default meta;
 

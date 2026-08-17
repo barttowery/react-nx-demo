@@ -3,7 +3,7 @@ import { OverviewLayout } from './overview-layout';
 
 const meta = {
   component: OverviewLayout,
-  title: 'OverviewLayout',
+  title: 'Overview/Overview Layout',
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', width: '100vw', height: '100vh', margin: '-16px' }}>

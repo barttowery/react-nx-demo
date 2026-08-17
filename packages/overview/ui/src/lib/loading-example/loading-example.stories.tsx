@@ -3,7 +3,7 @@ import { LoadingExample } from './loading-example';
 
 const meta = {
   component: LoadingExample,
-  title: 'LoadingExample',
+  title: 'Overview/Loading Example',
 } satisfies Meta<typeof LoadingExample>;
 export default meta;
 

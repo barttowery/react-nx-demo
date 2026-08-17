@@ -3,7 +3,7 @@ import { DonutDemo } from './donut-demo';
 
 const meta = {
   component: DonutDemo,
-  title: 'Donut Demo',
+  title: 'Overview/Donut Demo',
 } satisfies Meta<typeof DonutDemo>;
 export default meta;
 

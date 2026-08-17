@@ -3,7 +3,7 @@ import { AppointmentDemo } from './appointment-demo';
 
 const meta = {
   component: AppointmentDemo,
-  title: 'Appointment Demo',
+  title: 'Overview/Appointment Demo',
 } satisfies Meta<typeof AppointmentDemo>;
 export default meta;
 

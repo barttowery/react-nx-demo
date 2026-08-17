@@ -3,7 +3,7 @@ import { BarChartDemo } from './bar-chart-demo';
 
 const meta = {
   component: BarChartDemo,
-  title: 'Bar Chart Demo',
+  title: 'Overview/Bar Chart Demo',
 } satisfies Meta<typeof BarChartDemo>;
 export default meta;
 

@@ -55,7 +55,7 @@ export function MainNavigation() {
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link to="/">About Me</Link>
+            <Link to="/overview/about">About Me</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
