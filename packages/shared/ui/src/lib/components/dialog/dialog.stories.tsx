@@ -4,7 +4,7 @@ import { Button } from '../button/button';
 import { Field, FieldGroup } from '../field/field';
 import { Label } from '../label/label';
 import { Input } from '../input/input';
-import { expect, screen, waitFor, within } from 'storybook/test';
+import { expect, screen, waitFor } from 'storybook/test';
 
 const meta = {
   component: Dialog,

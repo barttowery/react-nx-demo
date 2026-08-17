@@ -1,10 +1,8 @@
 /// <reference types='vitest' />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import Unfonts from 'unplugin-fonts/vite';
 import tailwindcss from '@tailwindcss/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import path from 'path';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
@@ -23,11 +21,6 @@ export default defineConfig(() => ({
       root: '../../'
     }),
     tailwindcss(),
-    Unfonts({
-      google: {
-        families: ['Geist'],
-      }
-    })
   ],
   resolve: {
     tsconfigPaths: true,

@@ -1,5 +1,4 @@
 import './tailwind-imports.css';
-import 'unfonts.css';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 export const tags = ['autodocs'];

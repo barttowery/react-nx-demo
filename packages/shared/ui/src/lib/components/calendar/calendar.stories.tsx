@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Calendar } from './calendar';
-import { expect, screen, within } from 'storybook/test';
+import { expect, within } from 'storybook/test';
 
 /** Calendar - A calendar component that allows users to select a date or a range of dates. */
 const meta = {

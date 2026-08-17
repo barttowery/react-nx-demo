@@ -5,7 +5,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Landing } from '@react-nx-demo/platform-ui';
 import { overviewRouter } from '@react-nx-demo/overview-feature';
 import { salesRouter } from '@react-nx-demo/sales-feature';
-import 'unfonts.css';
 
 import App from './app/app';
 

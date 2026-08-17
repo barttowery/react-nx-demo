@@ -1,3 +1,6 @@
+export * from './lib/components/progress/progress';
+export * from './lib/components/toggle-group/toggle-group';
+export * from './lib/components/chart/chart';
 export * from './lib/components/empty/empty';
 export * from './lib/components/dropdown-menu/dropdown-menu';
 export * from './lib/components/message/message';

@@ -15,7 +15,6 @@ import {
   SelectItem,
   Checkbox,
   FieldContent,
-  CardFooter,
   Button,
 } from '@react-nx-demo/shared-ui';
 

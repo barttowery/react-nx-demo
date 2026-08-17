@@ -5,7 +5,6 @@ import { playwright } from '@vitest/browser-playwright';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import tailwindcss from '@tailwindcss/vite';
-import Unfonts from 'unplugin-fonts/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig(() => ({
@@ -17,11 +16,6 @@ export default defineConfig(() => ({
   plugins: [
     react(),
     tailwindcss(),
-    Unfonts({
-      google: {
-        families: ['Geist', 'Inter'],
-      }
-    }),
     dts({
       entryRoot: 'src',
       tsconfigPath: path.join(import.meta.dirname, 'tsconfig.lib.json'),

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from './bubble';
+import { expect, within } from 'storybook/test';
 
 /** Bubble - Displays conversational content in a message bubble. Supports variants, alignment, grouping, reactions, and collapsible content. */
 const meta = {
@@ -102,3 +103,74 @@ export const Variants = {
     );
   },
 } satisfies Story;
+
+
+/** Bubble Primary Visual - Verifies the bubble component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ["!dev", "!autodocs"],
+  args: {},
+  render: (args) => {
+    return (
+      <div className="flex w-full max-w-sm flex-col gap-8 py-12">
+        <Bubble align="end">
+          <BubbleContent>Hey there! what's up?</BubbleContent>
+        </Bubble>
+        <BubbleGroup>
+          <Bubble variant="muted">
+            <BubbleContent>Hey! Want to see chat bubbles?</BubbleContent>
+          </Bubble>
+          <Bubble variant="muted">
+            <BubbleContent>
+              I can group messages, switch sides, and keep the whole thread easy
+              to scan.
+            </BubbleContent>
+          </Bubble>
+        </BubbleGroup>
+        <Bubble align="end">
+          <BubbleContent>Sure. Hit me with your best demo.</BubbleContent>
+        </Bubble>
+      </div>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText(/Hey there! what's up/i)).toBeInTheDocument();
+    await expect(canvas.getByText(/Hey! Want to see chat bubbles/i)).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Bubble Variants Visual - Verifies different bubble variants render correctly */
+export const VariantsVisual: Story = {
+  tags: ["!dev", "!autodocs"],
+  args: {},
+  render: (args) => {
+    return (
+      <div className="flex w-full max-w-sm flex-col gap-12 py-12">
+        <Bubble>
+          <BubbleContent>This is the default primary bubble.</BubbleContent>
+        </Bubble>
+        <Bubble variant="secondary" align="end">
+          <BubbleContent>This is the secondary variant.</BubbleContent>
+        </Bubble>
+        <Bubble variant="muted">
+          <BubbleContent>
+            This one is muted. It uses a lower emphasis color for the chat bubble.
+          </BubbleContent>
+        </Bubble>
+        <Bubble variant="tinted" align="end">
+          <BubbleContent>
+            This one is tinted. The tint is a softer color derived from the
+            primary color.
+          </BubbleContent>
+        </Bubble>
+      </div>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText(/default primary bubble/i)).toBeInTheDocument();
+    await expect(canvas.getByText(/secondary variant/i)).toBeInTheDocument();
+    await expect(canvas.getByText(/muted/i)).toBeInTheDocument();
+  },
+} satisfies Story;
+

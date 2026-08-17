@@ -13,7 +13,7 @@ import {
 } from './alert-dialog';
 import { Button } from '../button/button';
 import { CircleFadingPlusIcon, BluetoothIcon, Trash2Icon } from "lucide-react";
-import { expect, screen, userEvent, waitFor, within } from 'storybook/test';
+import { expect, screen, waitFor } from 'storybook/test';
 
 /** Alert Dialog - A modal dialog that interrupts the user with important content and expects a response. */
 const meta = {

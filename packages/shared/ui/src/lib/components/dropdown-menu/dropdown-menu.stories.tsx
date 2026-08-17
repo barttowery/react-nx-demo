@@ -7,6 +7,7 @@ import {
   SettingsIcon,
   UserIcon,
 } from "lucide-react";
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test';
 import { useState } from 'react';
 
 /** Dropdown Menu - Displays a menu to the user triggered by a button. */
@@ -148,3 +149,74 @@ export const RadioGroup = {
   args: {},
   render:  () => <RadioGroupExample />
 };
+
+/** Dropdown Menu Primary Visual - Verifies the dropdown menu component renders correctly */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    children: (
+      <>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline">Open</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem>Billing</DropdownMenuItem>
+            <DropdownMenuItem>Settings</DropdownMenuItem>
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>GitHub</DropdownMenuItem>
+          <DropdownMenuItem>Support</DropdownMenuItem>
+          <DropdownMenuItem disabled>API</DropdownMenuItem>
+        </DropdownMenuContent>
+      </>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('Open')).toBeInTheDocument();
+  },
+} satisfies Story;
+
+/** Dropdown Menu Icons Visual - Verifies dropdown menu with icons renders correctly */
+export const IconsVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {
+    children: (
+      <>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline">Open</Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>
+            <UserIcon />
+            Profile
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <CreditCardIcon />
+            Billing
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <SettingsIcon />
+            Settings
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem variant="destructive">
+            <LogOutIcon />
+            Log out
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </>
+    )
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Open' }));
+    await waitFor(() => {
+      expect(screen.getByText('Profile')).toBeInTheDocument();
+      expect(screen.getByText('Log out')).toBeInTheDocument();
+    });
+  },
+} satisfies Story;

@@ -12,6 +12,7 @@ import {
 import { Button } from '../button/button';
 import { Label } from '../label/label';
 import { Input } from '../input/input';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 
 /** Sheet - Extends the Dialog component to display content that complements the main content of the screen. */
 const meta = {
@@ -134,5 +135,80 @@ export const NoClose = {
         </SheetContent>
       </>
     )
+  },
+} satisfies Story;
+
+/** Primary Visual - Verifies the sheet component renders correctly with varied content */
+export const PrimaryVisual: Story = {
+  tags: ['!dev', '!autodocs'],
+  args: {},
+  render: (args) => {
+    return (
+      <div className="flex flex-wrap gap-6">
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="outline">Open Form</Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Edit Profile</SheetTitle>
+              <SheetDescription>
+                Make changes to your profile here.
+              </SheetDescription>
+            </SheetHeader>
+            <div className="grid flex-1 auto-rows-min gap-6 px-4">
+              <div className="grid gap-3">
+                <Label htmlFor="visual-form-name">Name</Label>
+                <Input id="visual-form-name" defaultValue="Jane Doe" />
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="visual-form-email">Email</Label>
+                <Input id="visual-form-email" defaultValue="jane@example.com" />
+              </div>
+            </div>
+            <SheetFooter>
+              <Button type="submit">Save changes</Button>
+              <SheetClose asChild>
+                <Button variant="outline">Cancel</Button>
+              </SheetClose>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
+
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button variant="outline">Open Long</Button>
+          </SheetTrigger>
+          <SheetContent>
+            <SheetHeader>
+              <SheetTitle>Long Content</SheetTitle>
+              <SheetDescription>
+                This sheet contains scrollable content.
+              </SheetDescription>
+            </SheetHeader>
+            <div className="no-scrollbar overflow-y-auto px-4">
+              {Array.from({ length: 15 }).map((_, index) => (
+                <div key={index} className="mb-4">
+                  <h4 className="font-medium mb-2">Section {index + 1}</h4>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
+                </div>
+              ))}
+            </div>
+            <SheetFooter>
+              <Button variant="outline">Close</Button>
+            </SheetFooter>
+          </SheetContent>
+        </Sheet>
+      </div>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Open Form' }));
+    await waitFor(() => {
+      expect(canvas.getByText("Open Form")).toBeInTheDocument();
+    });
   },
 } satisfies Story;

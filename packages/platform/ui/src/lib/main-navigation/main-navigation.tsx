@@ -36,29 +36,26 @@ export function MainNavigation() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Coming Soon</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Demos</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="w-96">
-              <ListItem href="/" title="Introduction">
-                Re-usable components built with Tailwind CSS.
+              <ListItem href="/overview" title="Component Overview">
+                Page with various examples to see overall look and feel.
               </ListItem>
-              <ListItem href="/" title="Installation">
-                How to install dependencies and structure your app.
-              </ListItem>
-              <ListItem href="/" title="Typography">
-                Styles for headings, paragraphs, lists...etc
+              <ListItem href="/" title="Workflow Demo">
+                COMING SOON - Demo of a workflow visualization using React Flow.
               </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link to="/overview">Component Overview</Link>
+            <Link to="/sales">Sales Demo</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-            <Link to="/sales">Sales Demo</Link>
+            <Link to="/">About Me</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

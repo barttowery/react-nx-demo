@@ -2,15 +2,18 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Header } from './header';
 import { useState } from 'react';
 import { Theme } from '@react-nx-demo/platform-models';
+import { MemoryRouter } from 'react-router-dom';
 
 const meta = {
   component: Header,
   title: 'Header',
   decorators: [
     (Story) => (
-      <div style={{ margin: '-16px' }}>
-        <Story />
-      </div>
+      <MemoryRouter initialEntries={['/']}>
+        <div style={{ margin: '-16px' }}>
+          <Story />
+        </div>
+      </MemoryRouter>
     ),
   ],
 } satisfies Meta<typeof Header>;
