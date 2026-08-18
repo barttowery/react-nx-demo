@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Landing } from '@react-nx-demo/platform-ui';
 import { overviewRouter } from '@react-nx-demo/overview-feature';
 import { salesRouter } from '@react-nx-demo/sales-feature';
+import { workflowRouter } from '@react-nx-demo/workflow-feature';
 
 import App from './app/app';
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: 'sales',
         children: [...salesRouter],
+      },
+      {
+        path: 'workflow',
+        children: [...workflowRouter],
       },
     ],
   },

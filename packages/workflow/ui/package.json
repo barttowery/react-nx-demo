@@ -1,0 +1,20 @@
+{
+  "name": "@react-nx-demo/workflow-ui",
+  "version": "0.0.1",
+  "type": "module",
+  "types": "./src/index.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "nx": {
+    "tags": [
+      "scope:workflow",
+      "type:ui"
+    ]
+  }
+}

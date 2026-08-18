@@ -1,0 +1,11 @@
+@import './../../../../global.css';
+
+@source './../../../../packages/shared/ui';
+
+body {
+  background: var(--card);
+}
+
+.docs-story {
+  background: var(--card);
+}

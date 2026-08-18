@@ -29,6 +29,18 @@
     },
     {
       "path": "./packages/platform/models"
+    },
+    {
+      "path": "./packages/workflow/ui"
+    },
+    {
+      "path": "./packages/workflow/feature"
+    },
+    {
+      "path": "./packages/workflow/models"
+    },
+    {
+      "path": "./packages/workflow/mocks"
     }
-  ],
+  ]
 }

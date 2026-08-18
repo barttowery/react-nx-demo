@@ -6,3 +6,5 @@
 @source "../../../packages/sales/feature";
 @source "../../../packages/sales/ui";
 @source "../../../packages/shared/ui";
+@source "../../../packages/workflow/feature";
+@source "../../../packages/workflow/ui";

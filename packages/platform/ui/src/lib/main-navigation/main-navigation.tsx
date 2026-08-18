@@ -42,8 +42,8 @@ export function MainNavigation() {
               <ListItem href="/overview" title="Component Overview">
                 Page with various examples to see overall look and feel.
               </ListItem>
-              <ListItem href="/" title="Workflow Demo">
-                COMING SOON - Demo of a workflow visualization using React Flow.
+              <ListItem href="/workflow" title="Workflow Demo">
+                Demo of a workflow visualization using React Flow.
               </ListItem>
             </ul>
           </NavigationMenuContent>

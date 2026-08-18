@@ -33,9 +33,9 @@ export function NavigationSheet() {
               <Sparkles />
               Component Overview
             </Link>
-            <Link className="flex items-center gap-2 px-4 py-2 text-muted-foreground" onClick={() => setOpen(false)} to="/">
+            <Link className="flex items-center gap-2 px-4 py-2 text-muted-foreground" onClick={() => setOpen(false)} to="/workflow">
               <Workflow />
-              Workflow Demo (COMING SOON)
+              Workflow Demo
             </Link>
             <Separator />
             <Link className="flex items-center gap-2 px-4 py-2 text-muted-foreground" onClick={() => setOpen(false)} to="/sales">

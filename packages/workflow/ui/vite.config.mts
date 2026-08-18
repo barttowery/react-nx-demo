@@ -1,14 +1,23 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
+import * as path from 'path';
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import { playwright } from '@vitest/browser-playwright';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
-import * as path from 'path';
+import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from 'vite';
+
+const workspaceRoot = path.join(import.meta.dirname, '../../..');
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
-  cacheDir: '../../../node_modules/.vite/packages/overview/feature',
+  resolve: {
+    tsconfigPaths: true,
+  },
+  cacheDir: '../../../node_modules/.vite/packages/workflow/ui',
   plugins: [
     react(),
+    tailwindcss(),
     dts({
       entryRoot: 'src',
       tsconfigPath: path.join(import.meta.dirname, 'tsconfig.lib.json'),
@@ -30,7 +39,7 @@ export default defineConfig(() => ({
     lib: {
       // Could also be a dictionary or array of multiple entry points.
       entry: 'src/index.ts',
-      name: '@react-nx-demo/overview-feature',
+      name: '@react-nx-demo/workflow-ui',
       fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
@@ -42,7 +51,7 @@ export default defineConfig(() => ({
     },
   },
   test: {
-    name: '@react-nx-demo/overview-feature',
+    name: '@react-nx-demo/ui',
     watch: false,
     globals: true,
     environment: 'jsdom',
@@ -52,5 +61,36 @@ export default defineConfig(() => ({
       reportsDirectory: './test-output/vitest/coverage',
       provider: 'v8' as const,
     },
+    projects: [
+      {
+        extends: true as const,
+        plugins: [
+            storybookTest({
+              configDir: path.join(import.meta.dirname, '.storybook'),
+          }),
+        ],
+        test: {
+          name: 'storybook',
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright({}),
+            instances: [{ browser: 'chromium' as const }],
+          },
+        },
+      },
+      {
+        extends: true as const,
+        test: {
+          name: 'workflow-ui',
+          globals: true,
+          environment: 'jsdom',
+          setupFiles: ['./src/test-setup.ts'],
+          include: [
+            '{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+          ],
+        },
+      },
+    ],
   },
 }));

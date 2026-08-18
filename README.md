@@ -37,6 +37,7 @@ npx nx storybook <project>
 - For the shared-ui Storybook, run `nx storybook shared-ui`. This is the Storybook for the Shared Component Library and the Design System for the solution.
 - For the platform-ui Storybook, run `nx storybook platform-ui`. This is the Storybook for the Platform UI Library. This includes the header, navigation functionality, etc.
 - For the overview-ui Storybook, run `nx storybook overview-ui`. This is the Storybook for the Overview UI Library. This includes the components for the component overview page and the about me area.
+- For the workflow-ui Storybook, run `nx storybook workflow-ui`. This is the Storybook for the Workflow UI Library. This includes the demo of the workflow visualization.
 - COMING SOON - For the sales-ui Storybook, run `nx storybook sales-ui`. This is the Storybook for the Sales UI Library. This includes the components for the sales demo.
 
 ## Project Architecture
@@ -60,6 +61,12 @@ This is the meat of the functionality. The following packages exist.
 - shared-models (`/packages/shared-models`) - Does not currently exist, but would contain the models for the shared components.
 - shared-ui (`/packages/shared-ui`) - The shared component library for the solution and the design library for the solution. Storybook is configured and can be run via `nx storybook shared-ui`. These are intended to be shared components that could be used across multiple web sites. 
 - shared-utils (`/packages/shared-utils`) - Contains a tailwind class merge utility. Other shared utilities such as data formatters (currency, date, etc.) would also exist in this library.
+- workflow-feature (`/packages/workflow-feature`) - Contains the workflow routes, the page for the Workflow visualization and hooks for retrieving the data (when that is implemented).
+- workflow-mocks (`/packages/workflow-mocks`) - Contains the mocks for the workflow components and is used by Storybook in the workflow-ui package.
+- workflow-models (`/packages/workflow-models`) - Contains the models for the workflow components including the workflow step structure.
+- workflow-ui (`/packages/workflow-ui`) - Contains the workflow UI components. This contains the workflow functionality including building the
+hierarchy for the workflow, laying out the workflow and displaying the workflow inside the React Flow container. All data is passed in via
+properties (makes unit testing better). Storybook is configured and can be run via `nx storybook workflow-ui`.
 
 ## Unit Testing
 Unit testing for the shared component library is done via Storybook visual testing and vitest. This can be run using `nx test shared-ui` or `nx test shared-ui --coverage` to regenerate the code coverage testing details. Testing is not complete or thorough at this point, but offers a general idea of how things could be done.

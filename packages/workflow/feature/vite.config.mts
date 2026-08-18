@@ -6,7 +6,7 @@ import * as path from 'path';
 
 export default defineConfig(() => ({
   root: import.meta.dirname,
-  cacheDir: '../../../node_modules/.vite/packages/overview/feature',
+  cacheDir: '../../../node_modules/.vite/packages/workflow/feature',
   plugins: [
     react(),
     dts({
@@ -30,7 +30,7 @@ export default defineConfig(() => ({
     lib: {
       // Could also be a dictionary or array of multiple entry points.
       entry: 'src/index.ts',
-      name: '@react-nx-demo/overview-feature',
+      name: '@react-nx-demo/workflow-feature',
       fileName: 'index',
       // Change this to the formats you want to support.
       // Don't forget to update your package.json as well.
@@ -42,7 +42,7 @@ export default defineConfig(() => ({
     },
   },
   test: {
-    name: '@react-nx-demo/overview-feature',
+    name: '@react-nx-demo/workflow-feature',
     watch: false,
     globals: true,
     environment: 'jsdom',
