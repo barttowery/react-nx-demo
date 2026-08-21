@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Theme } from '@react-nx-demo/platform-models';
 import { Header } from '@react-nx-demo/platform-ui';
 import { Outlet } from 'react-router-dom';
@@ -10,6 +10,12 @@ export function App() {
       '(prefers-color-scheme: dark)',
     ).matches ? 'dark' : 'light'
   });
+
+  useEffect(() => {
+    if(theme.lightMode === 'dark') {
+      document.documentElement.classList.toggle('dark', true);
+    }
+  }, [theme.lightMode]);
 
   const toggleColor = () => {
     if(theme.color === 'green') {
