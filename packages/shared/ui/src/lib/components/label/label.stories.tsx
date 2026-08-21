@@ -28,7 +28,7 @@ export const WithCheckbox = {
   render: (args) => {
     return (
       <div className="flex items-center space-x-2">
-        <Checkbox {...args} />
+        <Checkbox id="checkbox"/>
         <Label className="text-xsm" htmlFor="checkbox">
           Label for Checkbox
         </Label>

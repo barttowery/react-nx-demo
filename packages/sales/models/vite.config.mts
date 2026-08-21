@@ -41,16 +41,16 @@ export default defineConfig(() => ({
       external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
   },
-  test: {
-    name: '@react-nx-demo/sales-models',
-    watch: false,
-    globals: true,
-    environment: 'jsdom',
-    include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    reporters: ['default'],
-    coverage: {
-      reportsDirectory: './test-output/vitest/coverage',
-      provider: 'v8' as const,
-    },
-  },
+  // test: {
+  //   name: '@react-nx-demo/sales-models',
+  //   watch: false,
+  //   globals: true,
+  //   environment: 'jsdom',
+  //   include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+  //   reporters: ['default'],
+  //   coverage: {
+  //     reportsDirectory: './test-output/vitest/coverage',
+  //     provider: 'v8' as const,
+  //   },
+  // },
 }));

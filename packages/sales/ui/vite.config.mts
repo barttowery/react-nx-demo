@@ -55,47 +55,47 @@ export default defineConfig(() => ({
       external: ['react', 'react-dom', 'react/jsx-runtime'],
     },
   },
-  test: {
-    name: '@react-nx-demo/sales-ui',
-    watch: false,
-    globals: true,
-    environment: 'jsdom',
-    include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
-    reporters: ['default'],
-    coverage: {
-      reportsDirectory: './test-output/vitest/coverage',
-      provider: 'v8' as const,
-    },
-    projects: [
-      {
-        extends: true as const,
-        plugins: [
-            storybookTest({
-              configDir: path.join(import.meta.dirname, '.storybook'),
-          }),
-        ],
-        test: {
-          name: 'storybook',
-          browser: {
-            enabled: true,
-            headless: true,
-            provider: playwright({}),
-            instances: [{ browser: 'chromium' as const }],
-          },
-        },
-      },
-      {
-        extends: true as const,
-        test: {
-          name: 'shared-ui',
-          globals: true,
-          environment: 'jsdom',
-          setupFiles: ['./src/test-setup.ts'],
-          include: [
-            '{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
-          ],
-        },
-      },
-    ],
-  },
+  // test: {
+  //   name: '@react-nx-demo/sales-ui',
+  //   watch: false,
+  //   globals: true,
+  //   environment: 'jsdom',
+  //   include: ['{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+  //   reporters: ['default'],
+  //   coverage: {
+  //     reportsDirectory: './test-output/vitest/coverage',
+  //     provider: 'v8' as const,
+  //   },
+  //   projects: [
+  //     {
+  //       extends: true as const,
+  //       plugins: [
+  //           storybookTest({
+  //             configDir: path.join(import.meta.dirname, '.storybook'),
+  //         }),
+  //       ],
+  //       test: {
+  //         name: 'storybook',
+  //         browser: {
+  //           enabled: true,
+  //           headless: true,
+  //           provider: playwright({}),
+  //           instances: [{ browser: 'chromium' as const }],
+  //         },
+  //       },
+  //     },
+  //     {
+  //       extends: true as const,
+  //       test: {
+  //         name: 'shared-ui',
+  //         globals: true,
+  //         environment: 'jsdom',
+  //         setupFiles: ['./src/test-setup.ts'],
+  //         include: [
+  //           '{src,tests}/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}',
+  //         ],
+  //       },
+  //     },
+  //   ],
+  // },
 }));

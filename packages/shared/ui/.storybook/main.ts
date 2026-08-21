@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
 import tailwindcss from '@tailwindcss/vite';
-import { mergeConfig, optimizeDeps } from 'vite';
+import { mergeConfig } from 'vite';
 
 import type { StorybookConfig } from '@storybook/react-vite';
 
