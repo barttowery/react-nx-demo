@@ -92,6 +92,10 @@
     }
   },
   "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["{workspaceRoot}/{projectRoot}/dist"]
+    },
     "test": {
       "dependsOn": ["^build"]
     },
