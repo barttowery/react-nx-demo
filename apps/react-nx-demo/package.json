@@ -1,6 +1,7 @@
 {
   "name": "@react-nx-demo/react-nx-demo",
   "version": "0.0.1",
+  "type": "module",
   "private": true,
   "devDependencies": {
     "@react-nx-demo/overview-feature": "*",

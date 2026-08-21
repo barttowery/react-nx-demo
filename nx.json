@@ -94,7 +94,7 @@
   "targetDefaults": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["{workspaceRoot}/{projectRoot}/dist"]
+      "outputs": ["{workspaceRoot}/dist/apps/{projectRoot}"]
     },
     "test": {
       "dependsOn": ["^build"]
