@@ -33,7 +33,7 @@ import { createWorkflowHierarchy } from './workflow-utils/create-workflow-hierar
 import { layoutWorkflowNodes } from './workflow-utils/layout-workflow-nodes';
 
 export interface WorkflowDiagramProps {
-  workflow: WorkflowData,
+  workflow: WorkflowData;
   onReactFlowInit?: (instance: ReactFlowInstance) => void;
   onWrapperRefReady?: (element: HTMLDivElement | null) => void;
 }

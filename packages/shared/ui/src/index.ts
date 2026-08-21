@@ -1,3 +1,5 @@
+export * from './lib/components/accordion/accordion';
+export * from './lib/components/avatar/avatar';
 export * from './lib/components/progress/progress';
 export * from './lib/components/toggle-group/toggle-group';
 export * from './lib/components/chart/chart';

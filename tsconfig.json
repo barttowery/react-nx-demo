@@ -41,6 +41,12 @@
     },
     {
       "path": "./packages/workflow/mocks"
+    },
+    {
+      "path": "./packages/sales/mocks"
+    },
+    {
+      "path": "./packages/sales/models"
     }
   ]
 }

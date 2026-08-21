@@ -1,9 +1,9 @@
 import { RouteObject } from 'react-router-dom';
-import { ReactNxDemoFeature } from './feature';
+import { SalesHome } from './sales-home';
 
 export const salesRouter: RouteObject[] = [
   {
     index: true,
-    element: <ReactNxDemoFeature />,
+    element: <SalesHome />,
   },
 ];
