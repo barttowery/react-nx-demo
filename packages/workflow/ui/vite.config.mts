@@ -1,13 +1,13 @@
 /// <reference types='vitest' />
 import * as path from 'path';
-import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
-import { playwright } from '@vitest/browser-playwright';
+// import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+// import { playwright } from '@vitest/browser-playwright';
 import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 
-const workspaceRoot = path.join(import.meta.dirname, '../../..');
+// const workspaceRoot = path.join(import.meta.dirname, '../../..');
 
 export default defineConfig(() => ({
   root: import.meta.dirname,

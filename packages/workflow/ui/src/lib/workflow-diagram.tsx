@@ -7,7 +7,7 @@ import {
   OnEdgesChange,
   OnConnect,
   Controls,
-  MiniMap,
+  // MiniMap,
   Background,
   BackgroundVariant,
   NodeTypes,

@@ -103,6 +103,8 @@ export function DonutDemo() {
                         </tspan>
                       </text>
                     )
+                  } else {
+                    return null;
                   }
                 }}
               />

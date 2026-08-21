@@ -1,5 +1,3 @@
-import { Badge } from "@react-nx-demo/shared-ui";
-
 export function AboutSkills() {
   return (
     <>
