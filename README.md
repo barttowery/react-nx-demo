@@ -4,6 +4,10 @@ This is a frontend web example using React code. This is a [ReactJS](https://rea
 
 This is a potential architectural approach that I would take for a React solution. For more details on me, see [LinkedIn](https://www.linkedin.com/in/bart-towery-52287b/).
 
+## Live Deployment
+
+This example is running live at [https://react-nx-demo-git-main-barttowerys-projects.vercel.app/](https://react-nx-demo-git-main-barttowerys-projects.vercel.app/).
+
 ## Work in Progress
 
 Note that this solution is a work in progress. It is not completed. The current functionality is done (or at least has a first draft).
